@@ -15,7 +15,9 @@ namespace Sprint2
         readonly private String user = "admin";
         readonly private String password = "admin1234";
 
-        readonly MenuScreen menuScreen = new MenuScreen();
+        string hola = "Data Source=DESKTOP-V27T8O4\\SQLEXPRESS;Initial Catalog=SecureCore;Integrated Security=True";
+
+        MenuScreen menuScreen = new MenuScreen();
         private bool mouseDown;
         private Point lastLocation;
 
@@ -23,6 +25,8 @@ namespace Sprint2
         {
             InitializeComponent();
         }
+
+        #region Panel Draggable
 
         private void PanelDraggableLeft_MouseDown(object sender, MouseEventArgs e)
         {
@@ -54,6 +58,10 @@ namespace Sprint2
             MouseDown(e);
         }
 
+        #endregion
+
+        #region Panel Buttons
+
         private void PictureClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -84,6 +92,8 @@ namespace Sprint2
             pictureMinimize.BackColor = Color.Transparent;
         }
 
+        #endregion
+
         private void TextBoxUser_Enter(object sender, EventArgs e)
         {
             labelInvalidCredentialsTitle.Visible = false;
@@ -109,8 +119,9 @@ namespace Sprint2
             if (textBoxPassword.Text == "PASSWORD")
             {
                 textBoxPassword.Text = "";
-                textBoxPassword.UseSystemPasswordChar = true;
+                textBoxPassword.PasswordChar = '●';
             }
+            viewPassword.Visible = true;
         }
 
         private void TextBoxPassword_Leave(object sender, EventArgs e)
@@ -121,7 +132,6 @@ namespace Sprint2
                 textBoxPassword.UseSystemPasswordChar = false;
             }
         }
-
 
         private new void MouseUp()
         {
@@ -161,8 +171,9 @@ namespace Sprint2
             {
                 if (textBoxUser.Text.Equals(user) && textBoxPassword.Text.Equals(password))
                 {
-                    menuScreen.Show();
                     this.Hide();
+                    menuScreen.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
@@ -181,6 +192,19 @@ namespace Sprint2
             this.ActiveControl = labelTitleLogin;
         }
 
-        
+        private void viewPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '\0';
+        }
+
+        private void viewPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '●';
+        }
+
+        private void panelDraggableRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

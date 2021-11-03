@@ -7,67 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Sprint2
 {
     public partial class SplashScreen : Form
     {
-        readonly LoginScreen loginScreen = new LoginScreen();
-        private bool mouseDown;
-        private Point lastLocation;
+        LoginScreen login = new LoginScreen();
+        public const int SEGONS = 5;
+        int valX;
 
         public SplashScreen()
         {
             InitializeComponent();
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void SplashScreen_Load(object sender, EventArgs e)
         {
-            panelSlide.Width += 2;
+            Timer.Enabled = true;
+            Timer.Start();
+            Timer.Interval = 1;
+            valX = blackPanel.Location.X;
+        }
 
-            if(panelSlide.Width >= 900)
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (blackPanel.Location != new Point(560, 100))
             {
-                timerSplashScreen.Stop();
-                loginScreen.Show();
+                valX++;
+                blackPanel.Location = new Point(valX, 100);
+
+                if (blackPanel.Location == new Point(380, 100))
+                {
+                    this.textLabel.Text = "   Loading...";
+                }
+            }
+            else
+            {
+                Timer.Stop();
+
                 this.Hide();
+                login.ShowDialog();
+                this.Close();
             }
-        }
-
-        private void PictureClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void PictureClose_MouseHover(object sender, EventArgs e)
-        {
-            pictureClose.BackColor = Color.Gray;
-        }
-
-        private void PictureClose_MouseLeave(object sender, EventArgs e)
-        {
-            pictureClose.BackColor = Color.Transparent;
-        }
-
-        private void PanelDraggable_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
-
-        private void PanelDraggable_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void PanelDraggable_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
+            
         }
     }
 }

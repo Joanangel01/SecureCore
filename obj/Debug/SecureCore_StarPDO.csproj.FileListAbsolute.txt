@@ -1,0 +1,12 @@
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.AssemblyReference.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.LoginScreen.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.MenuScreen.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.Properties.Resources.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.GenerateResource.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CoreCompileInputs.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.exe
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.exe.config
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.exe
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.SplashScreen.resources
