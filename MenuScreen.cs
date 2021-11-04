@@ -120,5 +120,14 @@ namespace Sprint2
             mouseDown = true;
             lastLocation = e.Location;
         }
+
+        private void pictureLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginScreen login = new LoginScreen();
+            login.ShowDialog();
+            this.Close();
+
+        }
     }
 }

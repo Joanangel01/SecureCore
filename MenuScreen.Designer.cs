@@ -217,6 +217,7 @@ namespace Sprint2
             this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureLogout.TabIndex = 13;
             this.pictureLogout.TabStop = false;
+            this.pictureLogout.Click += new System.EventHandler(this.pictureLogout_Click);
             // 
             // pictureSettings
             // 

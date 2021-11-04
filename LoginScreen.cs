@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,8 +15,7 @@ namespace Sprint2
     {
         readonly private String user = "admin";
         readonly private String password = "admin1234";
-
-        string hola = "Data Source=DESKTOP-V27T8O4\\SQLEXPRESS;Initial Catalog=SecureCore;Integrated Security=True";
+        const string TABLE = "Users";
 
         MenuScreen menuScreen = new MenuScreen();
         private bool mouseDown;
@@ -94,6 +94,40 @@ namespace Sprint2
 
         #endregion
 
+        #region SQL Values
+
+        SqlConnection conn;
+        SqlDataAdapter adapter;
+        DataSet dts;
+        DataTable table;
+        string cnx;
+        string query;
+
+        #endregion
+
+        private void Connect()
+        {
+            cnx = "Data Source=DESKTOP-V27T8O4\\SQLEXPRESS;Initial Catalog=SecureCore;Integrated Security=True";
+            conn = new SqlConnection(cnx);
+
+            query = "SELECT Login FROM " + TABLE;
+            adapter = new SqlDataAdapter(query, conn);
+
+            conn.Open();
+            
+            dts = new DataSet();
+            adapter.Fill(dts, TABLE);
+            table = dts.Tables[TABLE];
+
+            foreach (object u in table.Rows)
+            {                
+                
+            }
+            
+
+            conn.Close();
+        }
+
         private void TextBoxUser_Enter(object sender, EventArgs e)
         {
             labelInvalidCredentialsTitle.Visible = false;
@@ -130,6 +164,7 @@ namespace Sprint2
             {
                 textBoxPassword.Text = "PASSWORD";
                 textBoxPassword.UseSystemPasswordChar = false;
+                textBoxPassword.PasswordChar = '\0';
             }
         }
 
@@ -169,27 +204,39 @@ namespace Sprint2
         {
             if (e.KeyData == Keys.Enter)
             {
-                if (textBoxUser.Text.Equals(user) && textBoxPassword.Text.Equals(password))
-                {
-                    this.Hide();
-                    menuScreen.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    labelInvalidCredentialsTitle.Visible = true;
-                    labelInvalidCredentialsText.Visible = true;
-                    this.ActiveControl = labelTitleLogin;
-                    textBoxUser.Text = "USER";
-                    textBoxPassword.Text = "PASSWORD";
-                    textBoxPassword.UseSystemPasswordChar = false;
-                }
+                validateLogin();
+            }
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            validateLogin();
+        }
+
+        private void validateLogin()
+        {
+            if (textBoxUser.Text.Equals(user) && textBoxPassword.Text.Equals(password))
+            {
+                this.Hide();
+                menuScreen.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                labelInvalidCredentialsTitle.Visible = true;
+                labelInvalidCredentialsText.Visible = true;
+                this.ActiveControl = labelTitleLogin;
+                textBoxUser.Text = "USER";
+                textBoxPassword.Text = "PASSWORD";
+                textBoxPassword.UseSystemPasswordChar = false;
+                textBoxPassword.PasswordChar = '\0';
             }
         }
 
         private void LoginScreen_Load(object sender, EventArgs e)
         {
             this.ActiveControl = labelTitleLogin;
+            Connect();
         }
 
         private void viewPassword_MouseDown(object sender, MouseEventArgs e)

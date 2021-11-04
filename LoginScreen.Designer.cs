@@ -44,6 +44,7 @@ namespace Sprint2
             this.labelInvalidCredentialsTitle = new System.Windows.Forms.Label();
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
             this.viewPassword = new System.Windows.Forms.PictureBox();
+            this.loginButton = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
@@ -207,7 +208,7 @@ namespace Sprint2
             // 
             this.labelInvalidCredentialsTitle.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInvalidCredentialsTitle.ForeColor = System.Drawing.Color.Black;
-            this.labelInvalidCredentialsTitle.Location = new System.Drawing.Point(327, 541);
+            this.labelInvalidCredentialsTitle.Location = new System.Drawing.Point(320, 655);
             this.labelInvalidCredentialsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInvalidCredentialsTitle.Name = "labelInvalidCredentialsTitle";
             this.labelInvalidCredentialsTitle.Size = new System.Drawing.Size(1005, 36);
@@ -220,7 +221,7 @@ namespace Sprint2
             // 
             this.labelInvalidCredentialsText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInvalidCredentialsText.ForeColor = System.Drawing.Color.Black;
-            this.labelInvalidCredentialsText.Location = new System.Drawing.Point(327, 586);
+            this.labelInvalidCredentialsText.Location = new System.Drawing.Point(320, 700);
             this.labelInvalidCredentialsText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInvalidCredentialsText.Name = "labelInvalidCredentialsText";
             this.labelInvalidCredentialsText.Size = new System.Drawing.Size(1005, 36);
@@ -243,6 +244,20 @@ namespace Sprint2
             this.viewPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseDown);
             this.viewPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseUp);
             // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
+            this.loginButton.FlatAppearance.BorderSize = 2;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(555, 542);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(566, 70);
+            this.loginButton.TabIndex = 2;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -250,6 +265,7 @@ namespace Sprint2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1350, 781);
             this.ControlBox = false;
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.viewPassword);
             this.Controls.Add(this.panelDraggableRight);
             this.Controls.Add(this.labelInvalidCredentialsText);
@@ -299,5 +315,6 @@ namespace Sprint2
         private System.Windows.Forms.PictureBox pictureMinimize;
         private System.Windows.Forms.PictureBox viewPassword;
         private System.Windows.Forms.Panel panelDraggableLeft;
+        private System.Windows.Forms.Button loginButton;
     }
 }
