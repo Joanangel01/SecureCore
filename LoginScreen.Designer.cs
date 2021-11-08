@@ -45,17 +45,23 @@ namespace Sprint2
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
             this.viewPassword = new System.Windows.Forms.PictureBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.panelLeft.Controls.Add(this.dataGridView1);
+            this.panelLeft.Controls.Add(this.dataGridView2);
             this.panelLeft.Controls.Add(this.panelDraggableLeft);
             this.panelLeft.Controls.Add(this.pictureBox1);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -104,7 +110,6 @@ namespace Sprint2
             this.panelDraggableRight.Name = "panelDraggableRight";
             this.panelDraggableRight.Size = new System.Drawing.Size(1050, 62);
             this.panelDraggableRight.TabIndex = 8;
-            this.panelDraggableRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDraggableRight_Paint);
             this.panelDraggableRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelDraggableRight_MouseDown);
             this.panelDraggableRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelDraggableRight_MouseMove);
             this.panelDraggableRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelDraggableRight_MouseUp);
@@ -258,6 +263,25 @@ namespace Sprint2
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(20, 138);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 82;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.Size = new System.Drawing.Size(277, 538);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(194, 453);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 82;
+            this.dataGridView2.Size = new System.Drawing.Size(8, 48);
+            this.dataGridView2.TabIndex = 13;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -294,6 +318,8 @@ namespace Sprint2
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +342,7 @@ namespace Sprint2
         private System.Windows.Forms.PictureBox viewPassword;
         private System.Windows.Forms.Panel panelDraggableLeft;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

@@ -289,6 +289,7 @@ namespace Sprint2
             this.Name = "MenuScreen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.MenuScreen_Load);
             this.panelDraggable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();

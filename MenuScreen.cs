@@ -129,5 +129,10 @@ namespace Sprint2
             this.Close();
 
         }
+
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
+            //this.labelUser.Text = LoginScreen;
+        }
     }
 }
