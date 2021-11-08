@@ -45,23 +45,19 @@ namespace Sprint2
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
             this.viewPassword = new System.Windows.Forms.PictureBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.panelLeft.Controls.Add(this.dataGridView1);
-            this.panelLeft.Controls.Add(this.dataGridView2);
             this.panelLeft.Controls.Add(this.panelDraggableLeft);
             this.panelLeft.Controls.Add(this.pictureBox1);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -263,24 +259,19 @@ namespace Sprint2
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // dataGridView1
+            // textBox1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 138);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(277, 538);
-            this.dataGridView1.TabIndex = 12;
+            this.textBox1.Location = new System.Drawing.Point(555, 244);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(501, 31);
+            this.textBox1.TabIndex = 14;
             // 
-            // dataGridView2
+            // textBox2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(194, 453);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 82;
-            this.dataGridView2.Size = new System.Drawing.Size(8, 48);
-            this.dataGridView2.TabIndex = 13;
+            this.textBox2.Location = new System.Drawing.Point(555, 281);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(501, 31);
+            this.textBox2.TabIndex = 15;
             // 
             // LoginScreen
             // 
@@ -289,6 +280,8 @@ namespace Sprint2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1350, 781);
             this.ControlBox = false;
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.viewPassword);
             this.Controls.Add(this.panelDraggableRight);
@@ -318,8 +311,6 @@ namespace Sprint2
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +333,7 @@ namespace Sprint2
         private System.Windows.Forms.PictureBox viewPassword;
         private System.Windows.Forms.Panel panelDraggableLeft;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

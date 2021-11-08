@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Security.Cryptography;
+
 namespace ConnectionLibrary
 {
 
@@ -15,14 +17,17 @@ namespace ConnectionLibrary
         SqlDataAdapter adapter;
         string cnx;
         SqlCommandBuilder cmdbuilder;
-        
+
+
+
         public Connection()
         {
             getConnectionString();
         }
-        private void getConnectionString(){
+        private void getConnectionString()
+        {
             ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["STARPDO"];
-            if(conf != null) cnx = conf.ConnectionString;
+            if (conf != null) cnx = conf.ConnectionString;
         }
 
 
@@ -35,19 +40,19 @@ namespace ConnectionLibrary
         public DataSet PortarTaula(DataSet dts, string nomtaula)
         {
             string query = "select * from " + nomtaula;
-            
+
             adapter = new SqlDataAdapter(query, conn);
             dts = new DataSet();
             adapter.Fill(dts, nomtaula);
             conn.Close();
             return dts;
-            
+
         }
         public DataSet PortarPerConsulta(string query, DataSet dts)
         {
             adapter = new SqlDataAdapter(query, conn);
             dts = new DataSet();
-            adapter.Fill(dts,"STARPDO");
+            adapter.Fill(dts, "STARPDO");
             conn.Close();
             return dts;
         }
@@ -81,7 +86,7 @@ namespace ConnectionLibrary
             return result;
         }
 
-        public bool Val(DataSet dts, string user, string pass)
+        public DataSet Val(DataSet dts, string user, string pass)
         {
             SqlDataAdapter dta = new SqlDataAdapter();
 
@@ -94,11 +99,11 @@ namespace ConnectionLibrary
 
             command.CommandType = CommandType.Text;
             command.CommandText = "SELECT * FROM [Users] " +
-                                  "WHERE [Login] = @User " +
-                                  "AND [Password] = @Pass";
+                                  "WHERE [Login] = @User ";
+            // "AND [Password] = @Pass";
 
             command.Parameters.Add(new SqlParameter("@User", user));
-            command.Parameters.Add(new SqlParameter("@Pass", pass));
+            //command.Parameters.Add(new SqlParameter("@Pass", pass));
             command.ExecuteNonQuery();
 
             dta.SelectCommand = command;
@@ -106,14 +111,24 @@ namespace ConnectionLibrary
 
             conn.Close();
 
-            //dts.Tables[0].Columns
+            //if (dts.Tables[0].Columns["Password"].Equals(pass))
+            //{
+            //    correcte = true;
+            //}
 
+
+            //correcte = VerifyPassword(pass, passwordSalt, passwordHash);
+            /*
             if (dts.Tables[0].Rows.Count > 0)
             {
                 correcte = true;
             }
-            
-            return correcte;
+            */
+
+            return dts;
         }
+
+
+
     }
 }

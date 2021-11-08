@@ -9,11 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConnectionLibrary;
-
+using System.Security.Cryptography;
 namespace Sprint2
 {
     public partial class LoginScreen : Form
     {
+        private const int SaltByteSize = 24;
+        private const int HashByteSize = 24;
+        private const int HasingIterationsCount = 10101;
         class ConnectionToDB : Connection
         {
 
@@ -186,13 +189,25 @@ namespace Sprint2
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+            byte[] passwordHash;
             Connection connexio = new ConnectionToDB();
 
-            bool validacio = connexio.Val(dts, textBoxUser.Text, textBoxPassword.Text);
+            dts = connexio.Val(dts, textBoxUser.Text, textBoxPassword.Text);
 
             //bool validacio = connexio.Validate(dts, queryUser, queryPass, textBoxUser.Text, textBoxPassword.Text);
+            string passIntroduitStr ="";
+            foreach (DataRow item in dts.Tables[0].Rows)
+            {
+                passIntroduitStr = (string)item[4];
+            }
 
+            byte[] passwordSalt = Encoding.ASCII.GetBytes(passIntroduitStr);
+            
+            passwordHash = ComputeHash(textBoxPassword.Text, passwordSalt, HasingIterationsCount, HashByteSize);
+
+            textBox1.Text = BitConverter.ToString(passwordHash);
+            textBox2.Text =passIntroduitStr;
+            bool  validacio = false;
             if (validacio)
             {
                 this.Hide();
@@ -219,6 +234,43 @@ namespace Sprint2
         private void viewPassword_MouseUp(object sender, MouseEventArgs e)
         {
             textBoxPassword.PasswordChar = '●';
+        }
+        public static byte[] ComputeHash(string password, byte[] salt,
+    int iterations = HasingIterationsCount, int hashByteSize = HashByteSize)
+        {
+            Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, salt);
+            hashGenerator.IterationCount = iterations;
+
+            return hashGenerator.GetBytes(hashByteSize);
+        }
+        public static byte[] GenerateSalt(int saltByteSize = SaltByteSize)
+        {
+            RNGCryptoServiceProvider saltGenerator = new
+            RNGCryptoServiceProvider();
+
+            byte[] salt = new byte[saltByteSize];
+            saltGenerator.GetBytes(salt);
+
+            return salt;
+        }
+        public static bool VerifyPassword(string password, byte[] passwordSalt, byte[] passwordHash)
+        {
+
+            byte[] computedHash = ComputeHash(password, passwordSalt);
+
+            return AreHashesEqual(computedHash, passwordHash);
+
+        }
+
+        private static bool AreHashesEqual(byte[] firstHash, byte[] secondHash)
+
+        {
+            bool correcte = false;
+            if (firstHash.Equals(secondHash))
+            {
+                correcte = true;
+            }
+            return correcte;
         }
 
     }
