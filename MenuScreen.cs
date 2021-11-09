@@ -132,7 +132,10 @@ namespace Sprint2
 
         private void MenuScreen_Load(object sender, EventArgs e)
         {
-            //this.labelUser.Text = LoginScreen;
+            labelUser.Text = LoginScreen.nomComplert;
+            pictureUser.ImageLocation = LoginScreen.urlPhoto;
+
+            
         }
     }
 }

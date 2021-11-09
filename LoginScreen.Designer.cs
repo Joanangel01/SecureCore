@@ -45,8 +45,6 @@ namespace Sprint2
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
             this.viewPassword = new System.Windows.Forms.PictureBox();
             this.loginButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
@@ -259,20 +257,6 @@ namespace Sprint2
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(555, 244);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(501, 31);
-            this.textBox1.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(555, 281);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(501, 31);
-            this.textBox2.TabIndex = 15;
-            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -280,8 +264,6 @@ namespace Sprint2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1350, 781);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.viewPassword);
             this.Controls.Add(this.panelDraggableRight);
@@ -333,7 +315,5 @@ namespace Sprint2
         private System.Windows.Forms.PictureBox viewPassword;
         private System.Windows.Forms.Panel panelDraggableLeft;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }

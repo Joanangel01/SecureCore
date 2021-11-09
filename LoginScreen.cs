@@ -16,7 +16,11 @@ namespace Sprint2
     {
         private const int SaltByteSize = 24;
         private const int HashByteSize = 24;
-        private const int HasingIterationsCount = 10101;
+        private const int HasingIterationsCount = 100000;
+
+        public static string nomComplert;
+        public static string urlPhoto;
+
         class ConnectionToDB : Connection
         {
 
@@ -190,24 +194,32 @@ namespace Sprint2
         private void loginButton_Click(object sender, EventArgs e)
         {
             byte[] passwordHash;
+            byte[] passwordSalt;
+            string passBDStr = "";
+            string saltBDStr = "";
+
             Connection connexio = new ConnectionToDB();
 
             dts = connexio.Val(dts, textBoxUser.Text, textBoxPassword.Text);
 
-            //bool validacio = connexio.Validate(dts, queryUser, queryPass, textBoxUser.Text, textBoxPassword.Text);
-            string passIntroduitStr ="";
             foreach (DataRow item in dts.Tables[0].Rows)
             {
-                passIntroduitStr = (string)item[4];
+                passBDStr = (string)item[4];
+                saltBDStr = (string)item[10];
+                nomComplert = (string)item[2];
+                urlPhoto = (string)item[7];
             }
 
-            byte[] passwordSalt = Encoding.ASCII.GetBytes(passIntroduitStr);
-            
-            passwordHash = ComputeHash(textBoxPassword.Text, passwordSalt, HasingIterationsCount, HashByteSize);
+            passwordSalt = Convert.FromBase64String(saltBDStr);
+            passwordHash = Convert.FromBase64String(passBDStr);
 
-            textBox1.Text = BitConverter.ToString(passwordHash);
-            textBox2.Text =passIntroduitStr;
-            bool  validacio = false;
+            //passwordHash = ComputeHash(textBoxPassword.Text, passwordSalt, HasingIterationsCount, HashByteSize);
+
+            //textBox2.Text = passBDStr;
+            //textBox1.Text = saltBDStr;
+
+            bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+
             if (validacio)
             {
                 this.Hide();
@@ -235,14 +247,16 @@ namespace Sprint2
         {
             textBoxPassword.PasswordChar = '●';
         }
-        public static byte[] ComputeHash(string password, byte[] salt,
-    int iterations = HasingIterationsCount, int hashByteSize = HashByteSize)
+
+        public static byte[] ComputeHash(string password, byte[] salt, 
+        int iterations = HasingIterationsCount, int hashByteSize = HashByteSize)
         {
             Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, salt);
             hashGenerator.IterationCount = iterations;
 
             return hashGenerator.GetBytes(hashByteSize);
         }
+
         public static byte[] GenerateSalt(int saltByteSize = SaltByteSize)
         {
             RNGCryptoServiceProvider saltGenerator = new
@@ -253,11 +267,11 @@ namespace Sprint2
 
             return salt;
         }
+
         public static bool VerifyPassword(string password, byte[] passwordSalt, byte[] passwordHash)
         {
 
             byte[] computedHash = ComputeHash(password, passwordSalt);
-
             return AreHashesEqual(computedHash, passwordHash);
 
         }
@@ -266,7 +280,7 @@ namespace Sprint2
 
         {
             bool correcte = false;
-            if (firstHash.Equals(secondHash))
+            if (Convert.ToBase64String(firstHash).Equals(Convert.ToBase64String(secondHash)))
             {
                 correcte = true;
             }

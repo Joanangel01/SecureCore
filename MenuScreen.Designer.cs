@@ -102,7 +102,7 @@ namespace Sprint2
             this.pictureUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureUser.Name = "pictureUser";
             this.pictureUser.Size = new System.Drawing.Size(90, 94);
-            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUser.TabIndex = 12;
             this.pictureUser.TabStop = false;
             // 
