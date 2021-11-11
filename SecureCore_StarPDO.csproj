@@ -131,6 +131,10 @@
       <Project>{4502de6c-ee49-4e76-a124-eb16271b4d9a}</Project>
       <Name>ConnectionLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="CustomControls\CustomControls.csproj">
+      <Project>{43188d49-b614-4be5-8f44-58fedfbdf122}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

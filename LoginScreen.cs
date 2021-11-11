@@ -19,6 +19,7 @@ namespace Sprint2
         private const int HasingIterationsCount = 100000;
 
         public static string nomComplert;
+        public static string idUserCategory;
         public static string urlPhoto;
 
         class ConnectionToDB : Connection
@@ -200,26 +201,23 @@ namespace Sprint2
 
             Connection connexio = new ConnectionToDB();
 
-            dts = connexio.Val(dts, textBoxUser.Text, textBoxPassword.Text);
+            dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
 
             foreach (DataRow item in dts.Tables[0].Rows)
             {
                 passBDStr = (string)item[4];
                 saltBDStr = (string)item[10];
                 nomComplert = (string)item[2];
+                idUserCategory = item[6].ToString();
                 urlPhoto = (string)item[7];
             }
 
             passwordSalt = Convert.FromBase64String(saltBDStr);
             passwordHash = Convert.FromBase64String(passBDStr);
 
-            //passwordHash = ComputeHash(textBoxPassword.Text, passwordSalt, HasingIterationsCount, HashByteSize);
-
-            //textBox2.Text = passBDStr;
-            //textBox1.Text = saltBDStr;
-
             bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
 
+           
             if (validacio)
             {
                 this.Hide();
@@ -286,6 +284,5 @@ namespace Sprint2
             }
             return correcte;
         }
-
     }
 }

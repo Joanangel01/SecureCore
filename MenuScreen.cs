@@ -7,17 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
+using ConnectionLibrary;
+using CustomControls;
 namespace Sprint2
 {
     public partial class MenuScreen : Form
     {
+        DataSet dts;
         private bool mouseDown;
         private Point lastLocation;
+        
+        class ConnectionToDB : Connection
+        {
+
+        }
 
         public MenuScreen()
         {
             InitializeComponent();
+        }
+        private void borrar()
+        {
+            Connection connexio = new ConnectionToDB();
+
+            connexio.Conectar();
+            dts = connexio.PortarPerConsulta("select * from UserOption order by idOption desc", dts);
+
+            int i = 0;
+            foreach (DataRow row in dts.Tables[0].Rows)
+            {
+                AppLauncher picture = new AppLauncher()
+                {
+                    Form = "LoginScreen",
+                    Classe = "Sprint2",
+                    LabelText = row[1].ToString(),
+                    ImageUrl = row[2].ToString(),
+                    Width = 50,
+                    Height = 50,
+                    //SizeMode = PictureBoxSizeMode.Zoom,
+                    Dock = DockStyle.Top
+                    //Padding = new Padding(10)
+                   
+                };
+
+                panelLeft.Controls.Add(picture);
+
+                i++;
+            }
+        }
+
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
+            labelUser.Text = LoginScreen.nomComplert;
+            pictureUser.ImageLocation = LoginScreen.urlPhoto;
+
+            labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
+            borrar();
+            labelUserRole.Text = portarCategoria();
         }
 
         private void PictureClose_Click(object sender, EventArgs e)
@@ -127,15 +174,23 @@ namespace Sprint2
             LoginScreen login = new LoginScreen();
             login.ShowDialog();
             this.Close();
-
         }
 
-        private void MenuScreen_Load(object sender, EventArgs e)
+        private string portarCategoria()
         {
-            labelUser.Text = LoginScreen.nomComplert;
-            pictureUser.ImageLocation = LoginScreen.urlPhoto;
+            string categoria = "";
 
-            
+            Connection connexio = new ConnectionToDB();
+            connexio.Conectar();
+
+            dts = connexio.PortarPerConsulta("select * from usercategories where idUserCategory = " + LoginScreen.idUserCategory, dts);
+
+            foreach (DataRow item in dts.Tables[0].Rows)
+            {
+                categoria = item[2].ToString();
+            }
+
+            return categoria;
         }
     }
 }

@@ -13,3 +13,5 @@ C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.SplashScree
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\ConnectionLibrary.dll
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\ConnectionLibrary.pdb
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CopyComplete
+C:\Users\joana\source\repos\Joanangel01\SecureCore\bin\Debug\CustomControls.dll
+C:\Users\joana\source\repos\Joanangel01\SecureCore\bin\Debug\CustomControls.pdb
