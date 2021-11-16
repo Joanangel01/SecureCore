@@ -10,9 +10,24 @@ C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.exe.config
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.exe
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\Sprint2.pdb
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\Sprint2.SplashScreen.resources
+<<<<<<< Updated upstream
 C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.exe.config
 C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.exe
 C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.pdb
+=======
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\ConnectionLibrary.dll
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\bin\Debug\ConnectionLibrary.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CopyComplete
+C:\Users\joana\source\repos\Joanangel01\SecureCore\bin\Debug\CustomControls.dll
+C:\Users\joana\source\repos\Joanangel01\SecureCore\bin\Debug\CustomControls.pdb
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.exe.config
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.exe
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\Sprint2.pdb
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\ConnectionLibrary.dll
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\CustomControls.dll
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\ConnectionLibrary.pdb
+C:\Users\34644\Desktop\GitHub\SecureCore\bin\Debug\CustomControls.pdb
+>>>>>>> Stashed changes
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.AssemblyReference.cache
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.LoginScreen.resources
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.MenuScreen.resources
@@ -20,5 +35,9 @@ C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.Properties.Resources.
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.SplashScreen.resources
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.GenerateResource.cache
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CoreCompileInputs.cache
+<<<<<<< Updated upstream
+=======
+C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CopyComplete
+>>>>>>> Stashed changes
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.exe
 C:\Users\34644\Desktop\GitHub\SecureCore\obj\Debug\Sprint2.pdb

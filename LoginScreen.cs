@@ -15,6 +15,12 @@ namespace Sprint2
         readonly private String user = "admin";
         readonly private String password = "admin1234";
 
+<<<<<<< Updated upstream
+=======
+        }
+
+        DataSet dts;
+>>>>>>> Stashed changes
         readonly MenuScreen menuScreen = new MenuScreen();
         private bool mouseDown;
         private Point lastLocation;
@@ -176,7 +182,87 @@ namespace Sprint2
             }
         }
 
+<<<<<<< Updated upstream
         private void LoginScreen_Load(object sender, EventArgs e)
+=======
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+            string passBDStr = "";
+            string saltBDStr = "";
+
+            Connection connexio = new ConnectionToDB();
+
+            dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
+
+            foreach (DataRow item in dts.Tables[0].Rows)
+            {
+                passBDStr = (string)item[4];
+                saltBDStr = (string)item[10];
+                nomComplert = (string)item[2];
+                idUserCategory = item[6].ToString();
+                urlPhoto = (string)item[7];
+            }
+
+            passwordSalt = Convert.FromBase64String(saltBDStr);
+            passwordHash = Convert.FromBase64String(passBDStr);
+
+            bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+
+           
+            if (validacio)
+            {
+                this.Hide();
+                menuScreen.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                labelInvalidCredentialsTitle.Visible = true;
+                labelInvalidCredentialsText.Visible = true;
+                this.ActiveControl = labelTitleLogin;
+                textBoxUser.Text = "USER";
+                textBoxPassword.Text = "PASSWORD";
+                textBoxPassword.UseSystemPasswordChar = false;
+                textBoxPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void ViewPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '\0';
+        }
+
+        private void ViewPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '●';
+        }
+
+        public static byte[] ComputeHash(string password, byte[] salt, 
+        int iterations = HasingIterationsCount, int hashByteSize = HashByteSize)
+        {
+            Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, salt)
+            {
+                IterationCount = iterations
+            };
+
+            return hashGenerator.GetBytes(hashByteSize);
+        }
+
+        public static byte[] GenerateSalt(int saltByteSize = SaltByteSize)
+        {
+            RNGCryptoServiceProvider saltGenerator = new
+            RNGCryptoServiceProvider();
+
+            byte[] salt = new byte[saltByteSize];
+            saltGenerator.GetBytes(salt);
+
+            return salt;
+        }
+
+        public static bool VerifyPassword(string password, byte[] passwordSalt, byte[] passwordHash)
+>>>>>>> Stashed changes
         {
             this.ActiveControl = labelTitleLogin;
         }

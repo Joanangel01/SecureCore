@@ -43,6 +43,12 @@ namespace Sprint2
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelInvalidCredentialsTitle = new System.Windows.Forms.Label();
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
+<<<<<<< Updated upstream
+=======
+            this.viewPassword = new System.Windows.Forms.PictureBox();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.swCodi1 = new CustomControls.SwCodi();
+>>>>>>> Stashed changes
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
@@ -132,7 +138,11 @@ namespace Sprint2
             // 
             this.labelTitleLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTitleLogin.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.labelTitleLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+=======
+            this.labelTitleLogin.ForeColor = System.Drawing.Color.Black;
+>>>>>>> Stashed changes
             this.labelTitleLogin.Location = new System.Drawing.Point(206, 88);
             this.labelTitleLogin.Name = "labelTitleLogin";
             this.labelTitleLogin.Size = new System.Drawing.Size(682, 66);
@@ -142,7 +152,11 @@ namespace Sprint2
             // 
             // panelUserUnderline
             // 
+<<<<<<< Updated upstream
             this.panelUserUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+=======
+            this.panelUserUnderline.BackColor = System.Drawing.Color.Black;
+>>>>>>> Stashed changes
             this.panelUserUnderline.Location = new System.Drawing.Point(370, 240);
             this.panelUserUnderline.Name = "panelUserUnderline";
             this.panelUserUnderline.Size = new System.Drawing.Size(377, 5);
@@ -150,7 +164,11 @@ namespace Sprint2
             // 
             // panelPasswordUnderline
             // 
+<<<<<<< Updated upstream
             this.panelPasswordUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+=======
+            this.panelPasswordUnderline.BackColor = System.Drawing.Color.Black;
+>>>>>>> Stashed changes
             this.panelPasswordUnderline.Location = new System.Drawing.Point(370, 302);
             this.panelPasswordUnderline.Name = "panelPasswordUnderline";
             this.panelPasswordUnderline.Size = new System.Drawing.Size(377, 5);
@@ -161,7 +179,11 @@ namespace Sprint2
             this.textBoxUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.textBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUser.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.textBoxUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+=======
+            this.textBoxUser.ForeColor = System.Drawing.Color.Black;
+>>>>>>> Stashed changes
             this.textBoxUser.Location = new System.Drawing.Point(370, 215);
             this.textBoxUser.MaxLength = 32;
             this.textBoxUser.Name = "textBoxUser";
@@ -177,7 +199,11 @@ namespace Sprint2
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPassword.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.textBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+=======
+            this.textBoxPassword.ForeColor = System.Drawing.Color.Black;
+>>>>>>> Stashed changes
             this.textBoxPassword.Location = new System.Drawing.Point(370, 277);
             this.textBoxPassword.MaxLength = 32;
             this.textBoxPassword.Name = "textBoxPassword";
@@ -190,9 +216,15 @@ namespace Sprint2
             // 
             // labelInvalidCredentialsTitle
             // 
+<<<<<<< Updated upstream
             this.labelInvalidCredentialsTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInvalidCredentialsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelInvalidCredentialsTitle.Location = new System.Drawing.Point(218, 346);
+=======
+            this.labelInvalidCredentialsTitle.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInvalidCredentialsTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelInvalidCredentialsTitle.Location = new System.Drawing.Point(213, 419);
+>>>>>>> Stashed changes
             this.labelInvalidCredentialsTitle.Name = "labelInvalidCredentialsTitle";
             this.labelInvalidCredentialsTitle.Size = new System.Drawing.Size(670, 23);
             this.labelInvalidCredentialsTitle.TabIndex = 11;
@@ -203,8 +235,13 @@ namespace Sprint2
             // labelInvalidCredentialsText
             // 
             this.labelInvalidCredentialsText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.labelInvalidCredentialsText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelInvalidCredentialsText.Location = new System.Drawing.Point(218, 369);
+=======
+            this.labelInvalidCredentialsText.ForeColor = System.Drawing.Color.Black;
+            this.labelInvalidCredentialsText.Location = new System.Drawing.Point(213, 448);
+>>>>>>> Stashed changes
             this.labelInvalidCredentialsText.Name = "labelInvalidCredentialsText";
             this.labelInvalidCredentialsText.Size = new System.Drawing.Size(670, 23);
             this.labelInvalidCredentialsText.TabIndex = 12;
@@ -212,6 +249,54 @@ namespace Sprint2
             this.labelInvalidCredentialsText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelInvalidCredentialsText.Visible = false;
             // 
+<<<<<<< Updated upstream
+=======
+            // viewPassword
+            // 
+            this.viewPassword.BackColor = System.Drawing.Color.Transparent;
+            this.viewPassword.Image = global::Sprint2.Properties.Resources.eye_icon;
+            this.viewPassword.Location = new System.Drawing.Point(711, 269);
+            this.viewPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.viewPassword.Name = "viewPassword";
+            this.viewPassword.Size = new System.Drawing.Size(37, 36);
+            this.viewPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.viewPassword.TabIndex = 13;
+            this.viewPassword.TabStop = false;
+            this.viewPassword.Visible = false;
+            this.viewPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPassword_MouseDown);
+            this.viewPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPassword_MouseUp);
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
+            this.loginButton.FlatAppearance.BorderSize = 2;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.Location = new System.Drawing.Point(370, 347);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(2);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(377, 45);
+            this.loginButton.TabIndex = 2;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // swCodi1
+            // 
+            this.swCodi1.ClasseCS = null;
+            this.swCodi1.ControlID = null;
+            this.swCodi1.FormCS = null;
+            this.swCodi1.Location = new System.Drawing.Point(362, 157);
+            this.swCodi1.Name = "swCodi1";
+            this.swCodi1.NomCodi = "CodeRoute";
+            this.swCodi1.NomDesc = "DescRoute";
+            this.swCodi1.NomID = null;
+            this.swCodi1.NomTaula = "Routes";
+            this.swCodi1.Required = true;
+            this.swCodi1.Size = new System.Drawing.Size(385, 47);
+            this.swCodi1.TabIndex = 14;
+            // 
+>>>>>>> Stashed changes
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -219,6 +304,13 @@ namespace Sprint2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(900, 500);
             this.ControlBox = false;
+<<<<<<< Updated upstream
+=======
+            this.Controls.Add(this.swCodi1);
+            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.viewPassword);
+            this.Controls.Add(this.panelDraggableRight);
+>>>>>>> Stashed changes
             this.Controls.Add(this.labelInvalidCredentialsText);
             this.Controls.Add(this.labelInvalidCredentialsTitle);
             this.Controls.Add(this.panelDraggableRight);
@@ -264,5 +356,12 @@ namespace Sprint2
         private System.Windows.Forms.Label labelInvalidCredentialsTitle;
         private System.Windows.Forms.Label labelInvalidCredentialsText;
         private System.Windows.Forms.PictureBox pictureMinimize;
+<<<<<<< Updated upstream
+=======
+        private System.Windows.Forms.PictureBox viewPassword;
+        private System.Windows.Forms.Panel panelDraggableLeft;
+        private System.Windows.Forms.Button loginButton;
+        private CustomControls.SwCodi swCodi1;
+>>>>>>> Stashed changes
     }
 }
