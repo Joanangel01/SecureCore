@@ -43,8 +43,8 @@ namespace Sprint2
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelInvalidCredentialsTitle = new System.Windows.Forms.Label();
             this.labelInvalidCredentialsText = new System.Windows.Forms.Label();
-            this.viewPassword = new System.Windows.Forms.PictureBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.viewPassword = new System.Windows.Forms.PictureBox();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelDraggableRight.SuspendLayout();
@@ -143,7 +143,7 @@ namespace Sprint2
             this.labelTitleLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTitleLogin.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitleLogin.ForeColor = System.Drawing.Color.Black;
-            this.labelTitleLogin.Location = new System.Drawing.Point(309, 138);
+            this.labelTitleLogin.Location = new System.Drawing.Point(314, 129);
             this.labelTitleLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTitleLogin.Name = "labelTitleLogin";
             this.labelTitleLogin.Size = new System.Drawing.Size(1023, 103);
@@ -229,20 +229,6 @@ namespace Sprint2
             this.labelInvalidCredentialsText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelInvalidCredentialsText.Visible = false;
             // 
-            // viewPassword
-            // 
-            this.viewPassword.BackColor = System.Drawing.Color.Transparent;
-            this.viewPassword.Image = global::Sprint2.Properties.Resources.eye_icon;
-            this.viewPassword.Location = new System.Drawing.Point(1066, 420);
-            this.viewPassword.Name = "viewPassword";
-            this.viewPassword.Size = new System.Drawing.Size(55, 56);
-            this.viewPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.viewPassword.TabIndex = 13;
-            this.viewPassword.TabStop = false;
-            this.viewPassword.Visible = false;
-            this.viewPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseDown);
-            this.viewPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseUp);
-            // 
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
@@ -256,6 +242,20 @@ namespace Sprint2
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // viewPassword
+            // 
+            this.viewPassword.BackColor = System.Drawing.Color.Transparent;
+            this.viewPassword.Image = ((System.Drawing.Image)(resources.GetObject("viewPassword.Image")));
+            this.viewPassword.Location = new System.Drawing.Point(1066, 420);
+            this.viewPassword.Name = "viewPassword";
+            this.viewPassword.Size = new System.Drawing.Size(55, 56);
+            this.viewPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.viewPassword.TabIndex = 13;
+            this.viewPassword.TabStop = false;
+            this.viewPassword.Visible = false;
+            this.viewPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseDown);
+            this.viewPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.viewPassword_MouseUp);
             // 
             // LoginScreen
             // 

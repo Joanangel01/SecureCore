@@ -37,10 +37,7 @@ namespace Sprint2
                 valX++;
                 blackPanel.Location = new Point(valX, 100);
 
-                if (blackPanel.Location == new Point(380, 100))
-                {
-                    this.textLabel.Text = "   Loading...";
-                }
+                if (blackPanel.Location == new Point(380, 100)) this.textLabel.Text = "   Loading...";
             }
             else
             {

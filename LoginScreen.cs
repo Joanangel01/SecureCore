@@ -22,15 +22,15 @@ namespace Sprint2
         public static string idUserCategory;
         public static string urlPhoto;
 
-        class ConnectionToDB : Connection
-        {
-
-        }
-
         DataSet dts;
         MenuScreen menuScreen = new MenuScreen();
         private bool mouseDown;
         private Point lastLocation;
+
+        class ConnectionToDB : Connection
+        {
+
+        }
 
         public LoginScreen()
         {
@@ -105,52 +105,7 @@ namespace Sprint2
 
         #endregion
 
-        private void LoginScreen_Load(object sender, EventArgs e)
-        {
-            this.ActiveControl = labelTitleLogin;
-
-            
-        }
-
-        private void TextBoxUser_Enter(object sender, EventArgs e)
-        {
-            labelInvalidCredentialsTitle.Visible = false;
-            labelInvalidCredentialsText.Visible = false;
-            if (textBoxUser.Text == "USER")
-            {
-                textBoxUser.Text = "";
-            }
-        }
-
-        private void TextBoxUser_Leave(object sender, EventArgs e)
-        {
-            if(textBoxUser.Text == "")
-            {
-                textBoxUser.Text = "USER";
-            }
-        }
-
-        private void TextBoxPassword_Enter(object sender, EventArgs e)
-        {
-            labelInvalidCredentialsTitle.Visible = false;
-            labelInvalidCredentialsText.Visible = false;
-            if (textBoxPassword.Text == "PASSWORD")
-            {
-                textBoxPassword.Text = "";
-                textBoxPassword.PasswordChar = '●';
-            }
-            viewPassword.Visible = true;
-        }
-
-        private void TextBoxPassword_Leave(object sender, EventArgs e)
-        {
-            if (textBoxPassword.Text == "")
-            {
-                textBoxPassword.Text = "PASSWORD";
-                textBoxPassword.UseSystemPasswordChar = false;
-                textBoxPassword.PasswordChar = '\0';
-            }
-        }
+        #region Mouse Actions
 
         private new void MouseUp()
         {
@@ -174,79 +129,11 @@ namespace Sprint2
             lastLocation = e.Location;
         }
 
-        private void TextBoxUser_KeyDown(object sender, KeyEventArgs e)
-        {
-            CheckCredentials(e);
-        }
+        #endregion
 
-        private void TextBoxPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            CheckCredentials(e);
-        }       
+        #region Encriptació Hash
 
-        private void CheckCredentials(KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                Validate();
-            }
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            byte[] passwordHash;
-            byte[] passwordSalt;
-            string passBDStr = "";
-            string saltBDStr = "";
-
-            Connection connexio = new ConnectionToDB();
-
-            dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
-
-            foreach (DataRow item in dts.Tables[0].Rows)
-            {
-                passBDStr = (string)item[4];
-                saltBDStr = (string)item[10];
-                nomComplert = (string)item[2];
-                idUserCategory = item[6].ToString();
-                urlPhoto = (string)item[7];
-            }
-
-            passwordSalt = Convert.FromBase64String(saltBDStr);
-            passwordHash = Convert.FromBase64String(passBDStr);
-
-            bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
-
-           
-            if (validacio)
-            {
-                this.Hide();
-                menuScreen.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                labelInvalidCredentialsTitle.Visible = true;
-                labelInvalidCredentialsText.Visible = true;
-                this.ActiveControl = labelTitleLogin;
-                textBoxUser.Text = "USER";
-                textBoxPassword.Text = "PASSWORD";
-                textBoxPassword.UseSystemPasswordChar = false;
-                textBoxPassword.PasswordChar = '\0';
-            }
-        }
-
-        private void viewPassword_MouseDown(object sender, MouseEventArgs e)
-        {
-            textBoxPassword.PasswordChar = '\0';
-        }
-
-        private void viewPassword_MouseUp(object sender, MouseEventArgs e)
-        {
-            textBoxPassword.PasswordChar = '●';
-        }
-
-        public static byte[] ComputeHash(string password, byte[] salt, 
+        public static byte[] ComputeHash(string password, byte[] salt,
         int iterations = HasingIterationsCount, int hashByteSize = HashByteSize)
         {
             Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(password, salt);
@@ -283,6 +170,127 @@ namespace Sprint2
                 correcte = true;
             }
             return correcte;
+        }
+
+        #endregion
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = labelTitleLogin;
+        }
+
+        private void TextBoxUser_Enter(object sender, EventArgs e)
+        {
+            labelInvalidCredentialsTitle.Visible = false;
+            labelInvalidCredentialsText.Visible = false;
+            if (textBoxUser.Text == "USER") textBoxUser.Text = "";
+        }
+
+        private void TextBoxUser_Leave(object sender, EventArgs e)
+        {
+            if(textBoxUser.Text == "") textBoxUser.Text = "USER";
+        }
+
+        private void TextBoxPassword_Enter(object sender, EventArgs e)
+        {
+            labelInvalidCredentialsTitle.Visible = false;
+            labelInvalidCredentialsText.Visible = false;
+            if (textBoxPassword.Text == "PASSWORD")
+            {
+                textBoxPassword.Text = "";
+                textBoxPassword.PasswordChar = '●';
+            }
+            viewPassword.Visible = true;
+        }
+
+        private void TextBoxPassword_Leave(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text == "")
+            {
+                textBoxPassword.Text = "PASSWORD";
+                textBoxPassword.UseSystemPasswordChar = false;
+                textBoxPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void TextBoxUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            CheckCredentials(e);
+        }
+
+        private void TextBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            CheckCredentials(e);
+        }       
+
+        private void CheckCredentials(KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter) Validation();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Validation();
+        }
+
+        private void Validation()
+        {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+            string passBDStr = "";
+            string saltBDStr = "";
+
+            Connection connexio = new ConnectionToDB();
+
+            dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
+
+            foreach (DataRow item in dts.Tables[0].Rows)
+            {
+                passBDStr = (string)item[4];
+                saltBDStr = (string)item[10];
+                nomComplert = (string)item[2];
+                idUserCategory = item[6].ToString();
+                urlPhoto = (string)item[7];
+            }
+
+            passwordSalt = Convert.FromBase64String(saltBDStr);
+            passwordHash = Convert.FromBase64String(passBDStr);
+
+            bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+
+            /*
+             * 
+             * 
+             * boolean validacio
+             * 
+             */
+
+            if (validacio)
+            {
+                this.Hide();
+                menuScreen.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                labelInvalidCredentialsTitle.Visible = true;
+                labelInvalidCredentialsText.Visible = true;
+                this.ActiveControl = labelTitleLogin;
+                textBoxUser.Text = "USER";
+                textBoxPassword.Text = "PASSWORD";
+                textBoxPassword.UseSystemPasswordChar = false;
+                textBoxPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void viewPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '\0';
+        }
+
+        private void viewPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.PasswordChar = '●';
         }
     }
 }

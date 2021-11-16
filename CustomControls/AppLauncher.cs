@@ -107,7 +107,24 @@ namespace CustomControls
                 Type tipus = ensamblat.GetType($"{_classe}.{_form}");
                 Object dllBD = Activator.CreateInstance(tipus);
 
+                foreach (Form item in Application.OpenForms)
+                {
+                    if (item.Name == "MenuScreen")
+                    {
+                        foreach (Control ctr in item.Controls)
+                        {
+                            if (ctr.Name == "panelMain")
+                            {
+                                ((Form)dllBD).TopLevel = false;
+                                ((Form)dllBD).AutoScroll = true;
+                                ctr.Controls.Add(((Form)dllBD));
+                            }
+                        }
+                    }
+                }
+
                 ((Form)dllBD).Show();
+                
             }
             catch (Exception exception)
             {

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ConnectionLibrary;
 using CustomControls;
+using System.Drawing.Drawing2D;
+using System.Net;
+using System.IO;
+
 namespace Sprint2
 {
     public partial class MenuScreen : Form
@@ -27,45 +31,27 @@ namespace Sprint2
         {
             InitializeComponent();
         }
-        private void borrar()
+
+        #region Pannel Draggable
+
+        private void PanelDraggable_MouseDown(object sender, MouseEventArgs e)
         {
-            Connection connexio = new ConnectionToDB();
-
-            connexio.Conectar();
-            dts = connexio.PortarPerConsulta("select * from UserOption order by idOption desc", dts);
-
-            int i = 0;
-            foreach (DataRow row in dts.Tables[0].Rows)
-            {
-                AppLauncher picture = new AppLauncher()
-                {
-                    Form = "LoginScreen",
-                    Classe = "Sprint2",
-                    LabelText = row[1].ToString(),
-                    ImageUrl = row[2].ToString(),
-                    Width = 50,
-                    Height = 50,
-                    //SizeMode = PictureBoxSizeMode.Zoom,
-                    Dock = DockStyle.Top
-                    //Padding = new Padding(10)
-                   
-                };
-
-                panelLeft.Controls.Add(picture);
-
-                i++;
-            }
+            MouseDown(e);
         }
 
-        private void MenuScreen_Load(object sender, EventArgs e)
+        private void PanelDraggable_MouseMove(object sender, MouseEventArgs e)
         {
-            labelUser.Text = LoginScreen.nomComplert;
-            pictureUser.ImageLocation = LoginScreen.urlPhoto;
-
-            labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
-            borrar();
-            labelUserRole.Text = portarCategoria();
+            MouseMove(e);
         }
+
+        private void PanelDraggable_MouseUp(object sender, MouseEventArgs e)
+        {
+            MouseUp();
+        }
+
+        #endregion
+
+        #region Pannel Buttons
 
         private void PictureClose_Click(object sender, EventArgs e)
         {
@@ -131,20 +117,9 @@ namespace Sprint2
             pictureMinimize.BackColor = Color.Transparent;
         }
 
-        private void PanelDraggable_MouseDown(object sender, MouseEventArgs e)
-        {
-            MouseDown(e);
-        }
+        #endregion
 
-        private void PanelDraggable_MouseMove(object sender, MouseEventArgs e)
-        {
-            MouseMove(e);
-        }
-
-        private void PanelDraggable_MouseUp(object sender, MouseEventArgs e)
-        {
-            MouseUp();
-        }
+        #region Mouse Actions
 
         private new void MouseUp()
         {
@@ -155,9 +130,7 @@ namespace Sprint2
         {
             if (mouseDown)
             {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Update();
             }
         }
@@ -166,6 +139,81 @@ namespace Sprint2
         {
             mouseDown = true;
             lastLocation = e.Location;
+        }
+
+        #endregion
+
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
+            Image StartImage;
+
+            labelUser.Text = LoginScreen.nomComplert;
+            labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
+            showMenuOptions();
+            labelUserRole.Text = portarCategoria();
+
+            using (WebClient webClient = new WebClient())
+            {
+                byte[] data = webClient.DownloadData(LoginScreen.urlPhoto);
+
+                using (MemoryStream mem = new MemoryStream(data))
+                {
+                    StartImage = Image.FromStream(mem);
+                }
+            }
+
+            Image RoundedImage = ClipToCircle(StartImage, new PointF(StartImage.Width / 2, StartImage.Height / 2), StartImage.Width / 2, 
+                                              Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68))))));
+            pictureUser.Image = RoundedImage;
+            pictureUser.BorderStyle = BorderStyle.None;
+        }
+
+        public Image ClipToCircle(Image srcImage, PointF center, float radius, Color backGround)
+        {
+            Image dstImage = new Bitmap(srcImage.Width, srcImage.Height, srcImage.PixelFormat);
+
+            using (Graphics grafic = Graphics.FromImage(dstImage))
+            {
+                RectangleF objecte = new RectangleF(center.X - radius, center.Y - radius,
+                                                         radius * 2, radius * 2);
+                grafic.SmoothingMode = SmoothingMode.AntiAlias;
+
+                using (Brush brush = new SolidBrush(backGround))
+                {
+                    grafic.FillRectangle(brush, 0, 0, dstImage.Width, dstImage.Height);
+                }
+
+                GraphicsPath path = new GraphicsPath();
+                path.AddEllipse(objecte);
+                grafic.SetClip(path);
+                grafic.DrawImage(srcImage, 0, 0);
+
+                return dstImage;
+            }
+        }
+
+        private void showMenuOptions()
+        {
+            Connection connexio = new ConnectionToDB();
+
+            connexio.Conectar();
+            dts = connexio.PortarPerConsulta("SELECT * FROM UserOption ORDER BY idOption DESC", dts);
+
+            foreach (DataRow row in dts.Tables[0].Rows)
+            {
+                AppLauncher appLauncher = new AppLauncher()
+                {
+                    Form = row[3].ToString(),
+                    Classe = "Sprint2",
+                    LabelText = row[1].ToString(),
+                    ImageUrl = row[2].ToString(),
+                    Width = 50,
+                    Height = 50,
+                    Dock = DockStyle.Top
+                };
+
+                panelLeft.Controls.Add(appLauncher);   
+            }
         }
 
         private void pictureLogout_Click(object sender, EventArgs e)
@@ -183,14 +231,35 @@ namespace Sprint2
             Connection connexio = new ConnectionToDB();
             connexio.Conectar();
 
-            dts = connexio.PortarPerConsulta("select * from usercategories where idUserCategory = " + LoginScreen.idUserCategory, dts);
+            dts = connexio.PortarPerConsulta("SELECT * FROM UserCategories WHERE idUserCategory = " + LoginScreen.idUserCategory, dts);
 
-            foreach (DataRow item in dts.Tables[0].Rows)
+            foreach (DataRow row in dts.Tables[0].Rows)
             {
-                categoria = item[2].ToString();
+                categoria = row[2].ToString();
             }
 
             return categoria;
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginScreen login = new LoginScreen();
+            login.ShowDialog();
+            this.Close();
+        }
+
+        private void exitButton_MouseEnter(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.White;
+            Cursor = Cursors.Hand;
+        }
+
+        private void exitButton_MouseLeave(object sender, EventArgs e)
+        {
+            exitLabel.ForeColor = Color.Black;
+            Cursor = Cursors.Default;
+        }
+
     }
 }

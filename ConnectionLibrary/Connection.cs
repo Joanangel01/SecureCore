@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-using System.Security.Cryptography;
 
 namespace ConnectionLibrary
 {
@@ -112,9 +111,5 @@ namespace ConnectionLibrary
             conn.Close();
             return dts;
         }
-
-
-
-
     }
 }

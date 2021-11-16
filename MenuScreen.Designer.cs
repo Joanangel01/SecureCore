@@ -39,17 +39,18 @@ namespace Sprint2
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.exitLabel = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.PictureBox();
             this.labelWelcome = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.appLauncher1 = new CustomControls.AppLauncher();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelDraggable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exitButton)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDraggable
@@ -62,7 +63,6 @@ namespace Sprint2
             this.panelDraggable.Controls.Add(this.pictureMinimize);
             this.panelDraggable.Controls.Add(this.labelUser);
             this.panelDraggable.Controls.Add(this.pictureClose);
-            this.panelDraggable.Controls.Add(this.panel1);
             this.panelDraggable.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelDraggable.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDraggable.Location = new System.Drawing.Point(0, 0);
@@ -78,7 +78,7 @@ namespace Sprint2
             // 
             this.labelUserRole.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserRole.ForeColor = System.Drawing.Color.White;
-            this.labelUserRole.Location = new System.Drawing.Point(218, 47);
+            this.labelUserRole.Location = new System.Drawing.Point(116, 47);
             this.labelUserRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUserRole.Name = "labelUserRole";
             this.labelUserRole.Size = new System.Drawing.Size(515, 36);
@@ -88,12 +88,12 @@ namespace Sprint2
             // 
             // pictureUser
             // 
-            this.pictureUser.BackColor = System.Drawing.Color.Transparent;
+            this.pictureUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
-            this.pictureUser.Location = new System.Drawing.Point(110, 0);
+            this.pictureUser.Location = new System.Drawing.Point(13, 5);
             this.pictureUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(90, 94);
+            this.pictureUser.Size = new System.Drawing.Size(83, 84);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUser.TabIndex = 12;
             this.pictureUser.TabStop = false;
@@ -148,7 +148,7 @@ namespace Sprint2
             // 
             this.labelUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.Color.Black;
-            this.labelUser.Location = new System.Drawing.Point(219, 5);
+            this.labelUser.Location = new System.Drawing.Point(116, 5);
             this.labelUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(514, 42);
@@ -174,6 +174,8 @@ namespace Sprint2
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
+            this.panelLeft.Controls.Add(this.exitLabel);
+            this.panelLeft.Controls.Add(this.exitButton);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 94);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -181,48 +183,47 @@ namespace Sprint2
             this.panelLeft.Size = new System.Drawing.Size(218, 687);
             this.panelLeft.TabIndex = 10;
             // 
+            // exitLabel
+            // 
+            this.exitLabel.AutoSize = true;
+            this.exitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitLabel.Location = new System.Drawing.Point(98, 615);
+            this.exitLabel.Name = "exitLabel";
+            this.exitLabel.Size = new System.Drawing.Size(84, 42);
+            this.exitLabel.TabIndex = 1;
+            this.exitLabel.Text = "Exit";
+            // 
+            // exitButton
+            // 
+            this.exitButton.Image = ((System.Drawing.Image)(resources.GetObject("exitButton.Image")));
+            this.exitButton.Location = new System.Drawing.Point(-15, 592);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(153, 83);
+            this.exitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.exitButton.TabIndex = 0;
+            this.exitButton.TabStop = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.MouseEnter += new System.EventHandler(this.exitButton_MouseEnter);
+            this.exitButton.MouseLeave += new System.EventHandler(this.exitButton_MouseLeave);
+            // 
             // labelWelcome
             // 
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.ForeColor = System.Drawing.Color.White;
-            this.labelWelcome.Location = new System.Drawing.Point(353, 185);
+            this.labelWelcome.Location = new System.Drawing.Point(306, 140);
             this.labelWelcome.Name = "labelWelcome";
             this.labelWelcome.Size = new System.Drawing.Size(666, 73);
             this.labelWelcome.TabIndex = 11;
             this.labelWelcome.Text = "Welcome [Username]";
             // 
-            // pictureBox1
+            // panelMain
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(271, 325);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(789, 341);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // appLauncher1
-            // 
-            this.appLauncher1.BackColor = System.Drawing.Color.Transparent;
-            this.appLauncher1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.appLauncher1.Classe = null;
-            this.appLauncher1.Form = null;
-            this.appLauncher1.ImageUrl = "https://cdn-icons.flaticon.com/png/512/1008/premium/1008930.png?token=exp=1636642" +
-    "533~hmac=89aac4b3a174aa8f97a27ba5859983a8";
-            this.appLauncher1.LabelText = null;
-            this.appLauncher1.Location = new System.Drawing.Point(226, 404);
-            this.appLauncher1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.appLauncher1.Name = "appLauncher1";
-            this.appLauncher1.Range = 0;
-            this.appLauncher1.Size = new System.Drawing.Size(188, 78);
-            this.appLauncher1.TabIndex = 13;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 94);
-            this.panel1.TabIndex = 14;
+            this.panelMain.BackColor = System.Drawing.Color.DarkRed;
+            this.panelMain.Location = new System.Drawing.Point(225, 102);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1125, 679);
+            this.panelMain.TabIndex = 12;
             // 
             // MenuScreen
             // 
@@ -230,11 +231,10 @@ namespace Sprint2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1350, 781);
-            this.Controls.Add(this.appLauncher1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelDraggable);
+            this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -249,7 +249,9 @@ namespace Sprint2
             ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exitButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,8 +269,8 @@ namespace Sprint2
         private System.Windows.Forms.Label labelUserRole;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Label labelWelcome;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private CustomControls.AppLauncher appLauncher1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox exitButton;
+        private System.Windows.Forms.Label exitLabel;
+        private System.Windows.Forms.Panel panelMain;
     }
 }

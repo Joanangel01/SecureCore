@@ -46,7 +46,7 @@ namespace Sprint2
             // 
             // SecureCore
             // 
-            this.SecureCore.Image = global::Sprint2.Properties.Resources.SC;
+            this.SecureCore.Image = ((System.Drawing.Image)(resources.GetObject("SecureCore.Image")));
             this.SecureCore.Location = new System.Drawing.Point(158, -31);
             this.SecureCore.Name = "SecureCore";
             this.SecureCore.Size = new System.Drawing.Size(856, 289);
@@ -57,7 +57,7 @@ namespace Sprint2
             // Lighsaber
             // 
             this.Lighsaber.BackColor = System.Drawing.Color.Transparent;
-            this.Lighsaber.Image = global::Sprint2.Properties.Resources.LightSaber;
+            this.Lighsaber.Image = ((System.Drawing.Image)(resources.GetObject("Lighsaber.Image")));
             this.Lighsaber.Location = new System.Drawing.Point(146, 158);
             this.Lighsaber.Name = "Lighsaber";
             this.Lighsaber.Size = new System.Drawing.Size(902, 430);
