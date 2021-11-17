@@ -160,7 +160,6 @@ namespace Sprint2
 
             byte[] computedHash = ComputeHash(password, passwordSalt);
             return AreHashesEqual(computedHash, passwordHash);
-
         }
 
         private static bool AreHashesEqual(byte[] firstHash, byte[] secondHash)
@@ -241,7 +240,7 @@ namespace Sprint2
             byte[] passwordSalt;
             string passBDStr = "";
             string saltBDStr = "";
-
+            bool validacio;
             Connection connexio = new ConnectionToDB();
 
             dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
@@ -254,11 +253,17 @@ namespace Sprint2
                 idUserCategory = item[6].ToString();
                 urlPhoto = (string)item[7];
             }
-
+           
             passwordSalt = Convert.FromBase64String(saltBDStr);
             passwordHash = Convert.FromBase64String(passBDStr);
 
-            bool validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+            if (saltBDStr.Length != 0)
+            {
+                 validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+            }
+            else { validacio = false; }
+
+            
 
             /*
              * 

@@ -21,6 +21,8 @@ namespace Sprint2
         DataSet dts;
         private bool mouseDown;
         private Point lastLocation;
+
+        int accesLvl;
         
         class ConnectionToDB : Connection
         {
@@ -151,15 +153,13 @@ namespace Sprint2
             panelMain.Width = panelMain.Parent.Width - panelLeft.Width;
             labelUser.Text = LoginScreen.nomComplert;
             labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
-            ShowMenuOptions();
             labelUserRole.Text = PortarCategoria();
+            ShowMenuOptions();
+            
             pictureUser.ImageLocation = LoginScreen.urlPhoto;
             circleProfile.BackColor = Color.Transparent;
             circleProfile.Parent = pictureUser;
         }
-
-        
-        
 
         private void ShowMenuOptions()
         {
@@ -181,7 +181,12 @@ namespace Sprint2
                     Dock = DockStyle.Top
                 };
 
-                panelLeft.Controls.Add(appLauncher);   
+                if (accesLvl >= int.Parse(row[5].ToString()))
+                {
+                    panelLeft.Controls.Add(appLauncher);
+                }
+
+                
             }
         }
 
@@ -205,6 +210,7 @@ namespace Sprint2
             foreach (DataRow row in dts.Tables[0].Rows)
             {
                 categoria = row[2].ToString();
+                accesLvl = int.Parse(row[3].ToString());
             }
 
             return categoria;

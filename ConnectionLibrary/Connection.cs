@@ -30,6 +30,7 @@ namespace ConnectionLibrary
         public void Conectar()
         {
             conn = new SqlConnection(cnx);
+            
             conn.Open();
         }
 

@@ -31,10 +31,11 @@ namespace Sprint2
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
             this.panelDraggable = new System.Windows.Forms.Panel();
+            this.pictureRestore = new System.Windows.Forms.PictureBox();
+            this.circleProfile = new System.Windows.Forms.PictureBox();
             this.labelUserRole = new System.Windows.Forms.Label();
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.pictureMaximize = new System.Windows.Forms.PictureBox();
-            this.pictureRestore = new System.Windows.Forms.PictureBox();
             this.pictureMinimize = new System.Windows.Forms.PictureBox();
             this.labelUser = new System.Windows.Forms.Label();
             this.pictureClose = new System.Windows.Forms.PictureBox();
@@ -43,19 +44,18 @@ namespace Sprint2
             this.exitLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.circleProfile = new System.Windows.Forms.PictureBox();
             this.labelWelcome = new System.Windows.Forms.Label();
             this.panelDraggable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circleProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             this.panelLeft.SuspendLayout();
             this.exitPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exitButton)).BeginInit();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circleProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDraggable
@@ -72,20 +72,48 @@ namespace Sprint2
             this.panelDraggable.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelDraggable.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDraggable.Location = new System.Drawing.Point(0, 0);
+            this.panelDraggable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDraggable.Name = "panelDraggable";
-            this.panelDraggable.Size = new System.Drawing.Size(900, 60);
+            this.panelDraggable.Size = new System.Drawing.Size(1350, 94);
             this.panelDraggable.TabIndex = 9;
             this.panelDraggable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelDraggable_MouseDown);
             this.panelDraggable.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelDraggable_MouseMove);
             this.panelDraggable.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelDraggable_MouseUp);
             // 
+            // pictureRestore
+            // 
+            this.pictureRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureRestore.Image = ((System.Drawing.Image)(resources.GetObject("pictureRestore.Image")));
+            this.pictureRestore.Location = new System.Drawing.Point(1264, 0);
+            this.pictureRestore.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureRestore.Name = "pictureRestore";
+            this.pictureRestore.Size = new System.Drawing.Size(45, 47);
+            this.pictureRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureRestore.TabIndex = 11;
+            this.pictureRestore.TabStop = false;
+            this.pictureRestore.Click += new System.EventHandler(this.PictureRestore_Click);
+            this.pictureRestore.MouseLeave += new System.EventHandler(this.PictureRestore_MouseLeave);
+            this.pictureRestore.MouseHover += new System.EventHandler(this.PictureRestore_MouseHover);
+            // 
+            // circleProfile
+            // 
+            this.circleProfile.Image = ((System.Drawing.Image)(resources.GetObject("circleProfile.Image")));
+            this.circleProfile.Location = new System.Drawing.Point(-19, 0);
+            this.circleProfile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.circleProfile.Name = "circleProfile";
+            this.circleProfile.Size = new System.Drawing.Size(106, 83);
+            this.circleProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.circleProfile.TabIndex = 14;
+            this.circleProfile.TabStop = false;
+            // 
             // labelUserRole
             // 
             this.labelUserRole.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserRole.ForeColor = System.Drawing.Color.White;
-            this.labelUserRole.Location = new System.Drawing.Point(77, 30);
+            this.labelUserRole.Location = new System.Drawing.Point(116, 47);
+            this.labelUserRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUserRole.Name = "labelUserRole";
-            this.labelUserRole.Size = new System.Drawing.Size(343, 23);
+            this.labelUserRole.Size = new System.Drawing.Size(514, 36);
             this.labelUserRole.TabIndex = 13;
             this.labelUserRole.Text = "User Category";
             this.labelUserRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,9 +122,10 @@ namespace Sprint2
             // 
             this.pictureUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.pictureUser.Image = ((System.Drawing.Image)(resources.GetObject("pictureUser.Image")));
-            this.pictureUser.Location = new System.Drawing.Point(16, 3);
+            this.pictureUser.Location = new System.Drawing.Point(19, 5);
+            this.pictureUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(45, 50);
+            this.pictureUser.Size = new System.Drawing.Size(68, 78);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUser.TabIndex = 12;
             this.pictureUser.TabStop = false;
@@ -105,9 +134,10 @@ namespace Sprint2
             // 
             this.pictureMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureMaximize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMaximize.Image")));
-            this.pictureMaximize.Location = new System.Drawing.Point(843, 0);
+            this.pictureMaximize.Location = new System.Drawing.Point(1264, 0);
+            this.pictureMaximize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureMaximize.Name = "pictureMaximize";
-            this.pictureMaximize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMaximize.Size = new System.Drawing.Size(45, 47);
             this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMaximize.TabIndex = 9;
             this.pictureMaximize.TabStop = false;
@@ -116,27 +146,14 @@ namespace Sprint2
             this.pictureMaximize.MouseLeave += new System.EventHandler(this.PictureMaximize_MouseLeave);
             this.pictureMaximize.MouseHover += new System.EventHandler(this.PictureMaximize_MouseHover);
             // 
-            // pictureRestore
-            // 
-            this.pictureRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureRestore.Image = ((System.Drawing.Image)(resources.GetObject("pictureRestore.Image")));
-            this.pictureRestore.Location = new System.Drawing.Point(843, 0);
-            this.pictureRestore.Name = "pictureRestore";
-            this.pictureRestore.Size = new System.Drawing.Size(30, 30);
-            this.pictureRestore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureRestore.TabIndex = 11;
-            this.pictureRestore.TabStop = false;
-            this.pictureRestore.Click += new System.EventHandler(this.PictureRestore_Click);
-            this.pictureRestore.MouseLeave += new System.EventHandler(this.PictureRestore_MouseLeave);
-            this.pictureRestore.MouseHover += new System.EventHandler(this.PictureRestore_MouseHover);
-            // 
             // pictureMinimize
             // 
             this.pictureMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(816, 0);
+            this.pictureMinimize.Location = new System.Drawing.Point(1224, 0);
+            this.pictureMinimize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(30, 30);
+            this.pictureMinimize.Size = new System.Drawing.Size(45, 47);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureMinimize.TabIndex = 10;
             this.pictureMinimize.TabStop = false;
@@ -148,9 +165,10 @@ namespace Sprint2
             // 
             this.labelUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.Color.Black;
-            this.labelUser.Location = new System.Drawing.Point(77, 3);
+            this.labelUser.Location = new System.Drawing.Point(116, 5);
+            this.labelUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(343, 27);
+            this.labelUser.Size = new System.Drawing.Size(514, 42);
             this.labelUser.TabIndex = 8;
             this.labelUser.Text = "[Username]";
             this.labelUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,9 +177,10 @@ namespace Sprint2
             // 
             this.pictureClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(870, 0);
+            this.pictureClose.Location = new System.Drawing.Point(1305, 0);
+            this.pictureClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(30, 30);
+            this.pictureClose.Size = new System.Drawing.Size(45, 47);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureClose.TabIndex = 7;
             this.pictureClose.TabStop = false;
@@ -174,9 +193,10 @@ namespace Sprint2
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(156)))), ((int)(((byte)(68)))));
             this.panelLeft.Controls.Add(this.exitPanel);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 60);
+            this.panelLeft.Location = new System.Drawing.Point(0, 94);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(145, 440);
+            this.panelLeft.Size = new System.Drawing.Size(218, 687);
             this.panelLeft.TabIndex = 10;
             // 
             // exitPanel
@@ -184,10 +204,12 @@ namespace Sprint2
             this.exitPanel.BackColor = System.Drawing.Color.Transparent;
             this.exitPanel.Controls.Add(this.exitLabel);
             this.exitPanel.Controls.Add(this.exitButton);
+            this.exitPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exitPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.exitPanel.Location = new System.Drawing.Point(0, 346);
+            this.exitPanel.Location = new System.Drawing.Point(0, 540);
+            this.exitPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.exitPanel.Name = "exitPanel";
-            this.exitPanel.Size = new System.Drawing.Size(145, 94);
+            this.exitPanel.Size = new System.Drawing.Size(218, 147);
             this.exitPanel.TabIndex = 2;
             this.exitPanel.Click += new System.EventHandler(this.ExitPanel_Click);
             // 
@@ -195,10 +217,9 @@ namespace Sprint2
             // 
             this.exitLabel.AutoSize = true;
             this.exitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitLabel.Location = new System.Drawing.Point(76, 34);
-            this.exitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.exitLabel.Location = new System.Drawing.Point(114, 53);
             this.exitLabel.Name = "exitLabel";
-            this.exitLabel.Size = new System.Drawing.Size(56, 29);
+            this.exitLabel.Size = new System.Drawing.Size(84, 42);
             this.exitLabel.TabIndex = 1;
             this.exitLabel.Text = "Exit";
             this.exitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
@@ -206,10 +227,9 @@ namespace Sprint2
             // exitButton
             // 
             this.exitButton.Image = ((System.Drawing.Image)(resources.GetObject("exitButton.Image")));
-            this.exitButton.Location = new System.Drawing.Point(0, 17);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
+            this.exitButton.Location = new System.Drawing.Point(0, 27);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(102, 53);
+            this.exitButton.Size = new System.Drawing.Size(153, 83);
             this.exitButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.exitButton.TabIndex = 0;
             this.exitButton.TabStop = false;
@@ -222,21 +242,10 @@ namespace Sprint2
             this.panelMain.AutoSize = true;
             this.panelMain.BackColor = System.Drawing.Color.Black;
             this.panelMain.Controls.Add(this.labelWelcome);
-            this.panelMain.Location = new System.Drawing.Point(150, 65);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(2);
+            this.panelMain.Location = new System.Drawing.Point(225, 102);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(750, 435);
+            this.panelMain.Size = new System.Drawing.Size(1125, 680);
             this.panelMain.TabIndex = 12;
-            // 
-            // circleProfile
-            // 
-            this.circleProfile.Image = ((System.Drawing.Image)(resources.GetObject("circleProfile.Image")));
-            this.circleProfile.Location = new System.Drawing.Point(-10, 0);
-            this.circleProfile.Name = "circleProfile";
-            this.circleProfile.Size = new System.Drawing.Size(71, 53);
-            this.circleProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.circleProfile.TabIndex = 14;
-            this.circleProfile.TabStop = false;
             // 
             // labelWelcome
             // 
@@ -244,25 +253,25 @@ namespace Sprint2
             this.labelWelcome.AutoSize = true;
             this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.ForeColor = System.Drawing.Color.White;
-            this.labelWelcome.Location = new System.Drawing.Point(139, 20);
-            this.labelWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWelcome.Location = new System.Drawing.Point(208, 31);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(422, 46);
+            this.labelWelcome.Size = new System.Drawing.Size(666, 73);
             this.labelWelcome.TabIndex = 11;
             this.labelWelcome.Text = "Welcome [Username]";
             // 
             // MenuScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(900, 500);
+            this.ClientSize = new System.Drawing.Size(1350, 781);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelDraggable);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(900, 500);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(1350, 781);
             this.Name = "MenuScreen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -270,9 +279,10 @@ namespace Sprint2
             this.Load += new System.EventHandler(this.MenuScreen_Load);
             this.SizeChanged += new System.EventHandler(this.MenuScreen_SizeChanged);
             this.panelDraggable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circleProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureRestore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             this.panelLeft.ResumeLayout(false);
@@ -281,7 +291,6 @@ namespace Sprint2
             ((System.ComponentModel.ISupportInitialize)(this.exitButton)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circleProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

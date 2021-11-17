@@ -48,3 +48,6 @@ C:\Users\ASUS\Desktop\SecureCore\CustomControls\bin\Debug\CustomControls.pdb
 C:\Users\ASUS\Desktop\SecureCore\CustomControls\bin\Debug\ConnectionLibrary.dll
 C:\Users\ASUS\Desktop\SecureCore\CustomControls\bin\Debug\ConnectionLibrary.pdb
 C:\Users\ASUS\Desktop\SecureCore\CustomControls\obj\Debug\CustomControls.csproj.CopyComplete
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CustomControls\bin\Debug\ConnectionLibrary.dll
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CustomControls\bin\Debug\ConnectionLibrary.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CustomControls\obj\Debug\CustomControls.csproj.CopyComplete
