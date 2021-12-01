@@ -21,8 +21,6 @@ namespace Sprint2
         DataSet dts;
         private bool mouseDown;
         private Point lastLocation;
-
-        int accesLvl;
         
         class ConnectionToDB : Connection
         {
@@ -146,19 +144,27 @@ namespace Sprint2
         }
 
         #endregion
+        private void CarregarBenvinguda()
+        {
+            labelUser.Text = LoginScreen.nomComplert;
+            labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
+        }
+        private void CarregarUsuari()
+        {
+            labelUserRole.Text = PortarCategoria();
+            pictureUser.ImageLocation = LoginScreen.urlPhoto;
+            circleProfile.BackColor = Color.Transparent;
+            circleProfile.Parent = pictureUser;
 
+        }
         private void MenuScreen_Load(object sender, EventArgs e)
         {
             panelMain.Height = panelMain.Parent.Height - panelDraggable.Height;
             panelMain.Width = panelMain.Parent.Width - panelLeft.Width;
-            labelUser.Text = LoginScreen.nomComplert;
-            labelWelcome.Text = "Welcome " + LoginScreen.nomComplert;
-            labelUserRole.Text = PortarCategoria();
+            CarregarBenvinguda();
+
             ShowMenuOptions();
-            
-            pictureUser.ImageLocation = LoginScreen.urlPhoto;
-            circleProfile.BackColor = Color.Transparent;
-            circleProfile.Parent = pictureUser;
+            CarregarUsuari();
         }
 
         private void ShowMenuOptions()
@@ -166,7 +172,7 @@ namespace Sprint2
             Connection connexio = new ConnectionToDB();
 
             connexio.Conectar();
-            dts = connexio.PortarPerConsulta("SELECT * FROM UserOption ORDER BY idOption DESC", dts);
+            dts = connexio.PortarPerConsulta("SELECT * FROM UserOptions ORDER BY idOption DESC");
 
             foreach (DataRow row in dts.Tables[0].Rows)
             {
@@ -176,17 +182,13 @@ namespace Sprint2
                     Classe = "Sprint2",
                     LabelText = row[1].ToString(),
                     ImageUrl = row[2].ToString(),
+                    NomTaula = row[4].ToString(),
                     Width = 50,
                     Height = 50,
                     Dock = DockStyle.Top
                 };
 
-                if (accesLvl >= int.Parse(row[5].ToString()))
-                {
-                    panelLeft.Controls.Add(appLauncher);
-                }
-
-                
+                panelLeft.Controls.Add(appLauncher);   
             }
         }
 
@@ -205,12 +207,11 @@ namespace Sprint2
             Connection connexio = new ConnectionToDB();
             connexio.Conectar();
 
-            dts = connexio.PortarPerConsulta("SELECT * FROM UserCategories WHERE idUserCategory = " + LoginScreen.idUserCategory, dts);
+            dts = connexio.PortarPerConsulta("SELECT * FROM UserCategories WHERE idUserCategory = " + LoginScreen.idUserCategory);
 
             foreach (DataRow row in dts.Tables[0].Rows)
             {
                 categoria = row[2].ToString();
-                accesLvl = int.Parse(row[3].ToString());
             }
 
             return categoria;
@@ -259,6 +260,34 @@ namespace Sprint2
             panelMain.Height = panelMain.Parent.Height - panelDraggable.Height;
             panelMain.Width = panelMain.Parent.Width - panelLeft.Width;
             labelWelcome.Anchor = AnchorStyles.Top;
+
+            /*
+             * NO BORRAR - Arreglat que quan canvii el tamany de la finestra es vegi una icona diferent
+            if (pictureMaximize.Visible)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                pictureMaximize.Visible = false;
+                pictureRestore.Visible = true;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                pictureMaximize.Visible = true;
+                pictureRestore.Visible = false;
+            }
+            */
+        }
+
+        private void LabelUserRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CircleProfile_Click(object sender, EventArgs e)
+        {
+            UserProfile screen = new UserProfile();
+            
+            screen.Show();
         }
     }
 }

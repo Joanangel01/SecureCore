@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,12 @@ namespace Sprint2
 
         private void Exemple_Load(object sender, EventArgs e)
         {
-
+            var cryRpt = new ReportDocument();
+            cryRpt.Load(@"userAdminsitration.rpt");
+            crystalReportViewer1.ReportSource = cryRpt;
+            cryRpt.RecordSelectionFormula = "{Users.idUser} = "+ LoginScreen.idUser;    
+            crystalReportViewer1.Refresh();
         }
+
     }
 }

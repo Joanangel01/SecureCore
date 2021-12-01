@@ -35,6 +35,13 @@ namespace CustomControls
 
             set { _form = value; }
         }
+        private string _nomTaula;
+        public string NomTaula
+        {
+            get { return _nomTaula; }
+
+            set { _nomTaula = value; }
+        }
 
         private string _labelText;
         public string LabelText
@@ -75,7 +82,7 @@ namespace CustomControls
         
         void LoadIcon()
         {
-            if (_imageUrl is null || _imageUrl.Length == 0) _imageUrl = "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg";
+            if (_imageUrl is null || _imageUrl.Length == 0) _imageUrl = "https://i.blogs.es/594843/chrome/450_1000.jpg";
             WebRequest request = WebRequest.Create(_imageUrl);
             try
             {
@@ -104,7 +111,7 @@ namespace CustomControls
                 Assembly ensamblat = Assembly.LoadFrom($@"{_classe}.exe");
 
                 Type tipus = ensamblat.GetType($"{_classe}.{_form}");
-                Object dllBD = Activator.CreateInstance(tipus);
+                Object dllBD = Activator.CreateInstance(tipus, NomTaula);
 
                 foreach (Form item in Application.OpenForms)
                 {

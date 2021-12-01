@@ -107,7 +107,7 @@ namespace CustomControls
             dts = new DataSet();
             Connection connection = new ConnectionToDB();
             connection.Conectar();
-            dts = connection.PortarPerConsulta(text, dts);
+            dts = connection.PortarPerConsulta(text);
 
             foreach (DataColumn dataColumn in dts.Tables[0].Columns)
             {
@@ -125,7 +125,6 @@ namespace CustomControls
                     MessageBox.Show(exception.ToString());
                 }
             }
-            
             return descripcio;
         }
 

@@ -21,6 +21,7 @@ namespace Sprint2
         public static string nomComplert;
         public static string idUserCategory;
         public static string urlPhoto;
+        public static int idUser;
 
         DataSet dts;
         readonly MenuScreen menuScreen = new MenuScreen();
@@ -160,6 +161,7 @@ namespace Sprint2
 
             byte[] computedHash = ComputeHash(password, passwordSalt);
             return AreHashesEqual(computedHash, passwordHash);
+
         }
 
         private static bool AreHashesEqual(byte[] firstHash, byte[] secondHash)
@@ -231,6 +233,7 @@ namespace Sprint2
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+
             Validation();
         }
 
@@ -243,7 +246,7 @@ namespace Sprint2
             bool validacio;
             Connection connexio = new ConnectionToDB();
 
-            dts = connexio.isUser(dts, textBoxUser.Text, textBoxPassword.Text);
+            dts = connexio.IsUser(textBoxUser.Text);
 
             foreach (DataRow item in dts.Tables[0].Rows)
             {
@@ -252,16 +255,19 @@ namespace Sprint2
                 nomComplert = (string)item[2];
                 idUserCategory = item[6].ToString();
                 urlPhoto = (string)item[7];
+                idUser = (int)item[0];
             }
-           
-            passwordSalt = Convert.FromBase64String(saltBDStr);
-            passwordHash = Convert.FromBase64String(passBDStr);
-
-            if (saltBDStr.Length != 0)
+            if (passBDStr.Length > 0)
             {
-                 validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
+                passwordSalt = Convert.FromBase64String(saltBDStr);
+                passwordHash = Convert.FromBase64String(passBDStr);
+                validacio = VerifyPassword(textBoxPassword.Text, passwordSalt, passwordHash);
             }
-            else { validacio = false; }
+            else
+            {
+                validacio = false;
+            }
+
 
             
 

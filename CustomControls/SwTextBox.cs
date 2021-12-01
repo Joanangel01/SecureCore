@@ -107,22 +107,25 @@ namespace CustomControls
 
         private void SwTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            foreach (TextBox textBox in this.Parent.Controls)
+            foreach (Control control in this.Controls)
             {
-                if (textBox.Name == _fieldBinding)
+                if (control is SwTextBox)
                 {
-                    if (ValidateValues(this.Text)) textBox.Text = this.Text;
-                    else
+                    if (control.Name == _fieldBinding)
                     {
-                        textBox.Text = "";
-                        if (this.Text.Length > 0)
-                        {
-                            this.Text = "";
-                            this.Focus();
-                        }   
+                        if (ValidateValues(this.Text)) control.Text = this.Text;
+                        else{
+                            control.Text = "";
+                            if (this.Text.Length > 0)
+                            {
+                                this.Text = "";
+                                this.Focus();
+                            }
+                        }
                     }
-                }    
+                }
             }
+           
         }
     }
 }
