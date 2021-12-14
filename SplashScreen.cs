@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
 namespace Sprint2
 {
     public partial class SplashScreen : Form
     {
-        LoginScreen login = new LoginScreen();
+        
+        //LoginScreen login = new LoginScreen();
         public const int SEGONS = 5;
         int valX;
 
@@ -44,7 +44,8 @@ namespace Sprint2
                 Timer.Stop();
 
                 this.Hide();
-                login.ShowDialog();
+                System.Diagnostics.Process.Start(@"CommandConsoles.exe", @"/k ../../CommandConsoles/bin/debug/");
+                //login.ShowDialog();
                 this.Close();
             }
             

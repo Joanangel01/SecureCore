@@ -144,6 +144,7 @@ namespace Sprint2
         }
 
         #endregion
+
         private void CarregarBenvinguda()
         {
             labelUser.Text = LoginScreen.nomComplert;
@@ -179,7 +180,7 @@ namespace Sprint2
                 AppLauncher appLauncher = new AppLauncher()
                 {
                     Form = row[3].ToString(),
-                    Classe = "Sprint2",
+                    Classe = row[7].ToString(),
                     LabelText = row[1].ToString(),
                     ImageUrl = row[2].ToString(),
                     NomTaula = row[4].ToString(),
@@ -236,8 +237,6 @@ namespace Sprint2
             exitLabel.ForeColor = Color.Black;
             Cursor = Cursors.Default;
         }
-
-
 
         private void ExitPanel_Click(object sender, EventArgs e)
         {

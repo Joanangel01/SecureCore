@@ -17,7 +17,7 @@ namespace Sprint2
         public UC_Administration(string nomTaula)
         {
             InitializeComponent();
-            
+            nomTaula.Replace(nomTaula, "");
         }
 
         private void UC_Administration_QueryAccessibilityHelp(object sender, QueryAccessibilityHelpEventArgs e)
@@ -28,7 +28,6 @@ namespace Sprint2
         private void CarregarDades()
         {
             db = new SecureCoreEntities();
-
 
             cat = db.UserCategories.ToList();
 
@@ -56,24 +55,35 @@ namespace Sprint2
 
         }
 
-        private void buttonUpdate_Click(object sender, EventArgs e)
+        private void ButtonUpdate_Click(object sender, EventArgs e)
         {
+            if (isNew)
+            {
+                UserCategories usc = new UserCategories
+                {
+                    idUserCategory = 1,
+                    CodeCategory = swTextBox2.Text,
+                    DescCategory = swTextBox3.Text,
+                    AccessLevel = int.Parse(swTextBox4.Text)
+                };
+                db.UserCategories.Add(usc);
+            }
             db.SaveChanges();
             MessageBox.Show("Hehe");
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             isNew = true;
             TreuBinding();
         }
 
-        private void swTextBox4_Validated(object sender, EventArgs e)
+        private void SwTextBox4_Validated(object sender, EventArgs e)
         {
             
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             
         }

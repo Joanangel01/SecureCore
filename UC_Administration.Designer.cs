@@ -47,7 +47,7 @@ namespace Sprint2
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(667, 292);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.DataGridView1_SelectionChanged);
             // 
             // buttonAdd
             // 
@@ -58,7 +58,7 @@ namespace Sprint2
             this.buttonAdd.TabIndex = 12;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonUpdate
             // 
@@ -69,7 +69,7 @@ namespace Sprint2
             this.buttonUpdate.TabIndex = 11;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // swTextBox2
             // 
@@ -103,7 +103,7 @@ namespace Sprint2
             this.swTextBox4.Name = "swTextBox4";
             this.swTextBox4.Size = new System.Drawing.Size(100, 22);
             this.swTextBox4.TabIndex = 16;
-            this.swTextBox4.Validated += new System.EventHandler(this.swTextBox4_Validated);
+            this.swTextBox4.Validated += new System.EventHandler(this.SwTextBox4_Validated);
             // 
             // UC_Administration
             // 

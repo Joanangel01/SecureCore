@@ -278,9 +278,17 @@
     <None Include="Resources\eye_icon.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Administrations Screens\Administration_Screens.csproj">
+      <Project>{d4452fd6-43a5-41a1-8138-65d84ab11146}</Project>
+      <Name>Administration_Screens</Name>
+    </ProjectReference>
     <ProjectReference Include="BaseForms\BaseForms.csproj">
       <Project>{bbfe4b85-aea3-4cd7-85fe-ebabaac95422}</Project>
       <Name>BaseForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="CommandConsoles\CommandConsoles.csproj">
+      <Project>{d793ba6d-c8b9-49e9-a9c5-d87c8ec100d0}</Project>
+      <Name>CommandConsoles</Name>
     </ProjectReference>
     <ProjectReference Include="ConnectionLibrary\ConnectionLibrary.csproj">
       <Project>{4502de6c-ee49-4e76-a124-eb16271b4d9a}</Project>
