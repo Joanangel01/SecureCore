@@ -1,0 +1,10 @@
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\CommandConsoles.exe.config
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\CommandConsoles.exe
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\CommandConsoles.pdb
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\ConnectionLibrary.dll
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\ConnectionLibrary.pdb
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CopyComplete
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.exe
+C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb
