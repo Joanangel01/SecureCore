@@ -180,7 +180,7 @@ namespace Sprint2
                 AppLauncher appLauncher = new AppLauncher()
                 {
                     Form = row[3].ToString(),
-                    Classe = row[7].ToString(),
+                    Classe = row[6].ToString(),
                     LabelText = row[1].ToString(),
                     ImageUrl = row[2].ToString(),
                     NomTaula = row[4].ToString(),

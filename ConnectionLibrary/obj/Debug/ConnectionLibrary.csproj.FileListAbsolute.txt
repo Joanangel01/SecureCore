@@ -15,3 +15,6 @@ C:\Users\ASUS\Desktop\SecureCore\ConnectionLibrary\bin\Debug\ConnectionLibrary.p
 C:\Users\ASUS\Desktop\SecureCore\ConnectionLibrary\obj\Debug\ConnectionLibrary.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\SecureCore\ConnectionLibrary\obj\Debug\ConnectionLibrary.dll
 C:\Users\ASUS\Desktop\SecureCore\ConnectionLibrary\obj\Debug\ConnectionLibrary.pdb
+C:\Users\ASUS\Desktop\SecureCore\ConnectionLibrary\obj\Debug\ConnectionLibrary.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\SecureCore\execute\ConnectionLibrary.dll
+C:\Users\ASUS\Desktop\SecureCore\execute\ConnectionLibrary.pdb

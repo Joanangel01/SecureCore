@@ -47,7 +47,7 @@ namespace CommandConsole
             string query;
             dts = new DataSet();
             Connection connexio = new ConnectionToDB();
-            connexio.BeginRead();
+            
 
             string linia, numOrd, fechaOrd, areaOperativa, emisor, receptor;
             string planetaDestino, tipoCodigo, fechaEntrega;
@@ -75,7 +75,7 @@ namespace CommandConsole
                         urgencia = int.Parse(campsLinia[2]);
 
                         query = "SELECT idPriority FROM Priority Where CodePriority = " + urgencia.ToString();
-                        connexio.
+                        
                         dts = connexio.PortarPerConsulta(query);
                         foreach (DataRow item in dts.Tables[0].Rows)
                         {

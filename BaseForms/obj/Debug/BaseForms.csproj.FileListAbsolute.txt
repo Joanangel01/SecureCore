@@ -28,3 +28,6 @@ C:\Users\ASUS\Desktop\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.CoreCompil
 C:\Users\ASUS\Desktop\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.CopyComplete
 C:\Users\ASUS\Desktop\SecureCore\BaseForms\obj\Debug\BaseForms.dll
 C:\Users\ASUS\Desktop\SecureCore\BaseForms\obj\Debug\BaseForms.pdb
+C:\Users\ASUS\Desktop\SecureCore\execute\BaseForms.dll.config
+C:\Users\ASUS\Desktop\SecureCore\execute\BaseForms.dll
+C:\Users\ASUS\Desktop\SecureCore\execute\BaseForms.pdb

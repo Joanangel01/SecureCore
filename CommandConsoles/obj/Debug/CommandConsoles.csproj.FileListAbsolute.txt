@@ -8,3 +8,6 @@ C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\bin\Debug\ConnectionLibrary.pdb
 C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CopyComplete
 C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.exe
 C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb
+C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.exe.config
+C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.exe
+C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.pdb

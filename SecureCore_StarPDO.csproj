@@ -7,7 +7,7 @@
     <ProjectGuid>{47D4208D-4033-476E-BD22-9E34B163151A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Sprint2</RootNamespace>
-    <AssemblyName>Sprint2</AssemblyName>
+    <AssemblyName>SecureCore_StarPDO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>execute\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -144,21 +144,6 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModelUC.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelUC.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelUC.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelUC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelUC.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelUC.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureCoreDataSet.Designer.cs">
@@ -166,33 +151,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SecureCoreDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SpeciesAdministration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SpeciesAdministration.Designer.cs">
-      <DependentUpon>SpeciesAdministration.cs</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen.designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_Administration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UC_Administration.Designer.cs">
-      <DependentUpon>UC_Administration.cs</DependentUpon>
-    </Compile>
     <Compile Include="userAdminsitration.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>userAdminsitration.rpt</DependentUpon>
-      <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="UserCategories.cs">
-      <DependentUpon>ModelUC.tt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserProfile.cs">
       <SubType>Form</SubType>
@@ -219,14 +189,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SpeciesAdministration.resx">
-      <DependentUpon>SpeciesAdministration.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_Administration.resx">
-      <DependentUpon>UC_Administration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userAdminsitration.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -236,13 +200,6 @@
     <EmbeddedResource Include="UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="ModelUC.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelUC.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelUC.edmx.diagram">
-      <DependentUpon>ModelUC.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -302,18 +259,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelUC.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelUC.Context.cs</LastGenOutput>
-      <DependentUpon>ModelUC.edmx</DependentUpon>
-    </Content>
-    <Content Include="ModelUC.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelUC.edmx</DependentUpon>
-      <LastGenOutput>ModelUC.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

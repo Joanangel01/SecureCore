@@ -13,7 +13,7 @@ namespace Sprint2
     public partial class SplashScreen : Form
     {
         
-        //LoginScreen login = new LoginScreen();
+        LoginScreen login = new LoginScreen();
         public const int SEGONS = 5;
         int valX;
 
@@ -44,8 +44,8 @@ namespace Sprint2
                 Timer.Stop();
 
                 this.Hide();
-                System.Diagnostics.Process.Start(@"CommandConsoles.exe", @"/k ../../CommandConsoles/bin/debug/");
-                //login.ShowDialog();
+                //System.Diagnostics.Process.Start(@"CommandConsoles.exe", @"/k ../../CommandConsoles/bin/debug/");
+                login.ShowDialog();
                 this.Close();
             }
             
