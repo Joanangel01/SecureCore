@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sprint2 {
+namespace SecureCore {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace Sprint2 {
         
         public override string FullResourceName {
             get {
-                return "Sprint2.userAdminsitration.rpt";
+                return "SecureCore.userAdminsitration.rpt";
             }
             set {
                 // Do nothing

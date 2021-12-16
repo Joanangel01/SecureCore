@@ -11,7 +11,7 @@ using ConnectionLibrary;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 
-namespace Sprint2
+namespace SecureCore
 {
     public partial class UserProfile : Form
     {

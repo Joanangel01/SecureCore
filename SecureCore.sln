@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControls", "CustomCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForms", "BaseForms\BaseForms.csproj", "{BBFE4B85-AEA3-4CD7-85FE-EBABAAC95422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administration_Screens", "Administrations Screens\Administration_Screens.csproj", "{D4452FD6-43A5-41A1-8138-65D84AB11146}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Administrations_Screens", "Administrations Screens\Administrations_Screens.csproj", "{D4452FD6-43A5-41A1-8138-65D84AB11146}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandConsoles", "CommandConsoles\CommandConsoles.csproj", "{D793BA6D-C8B9-49E9-A9C5-D87C8EC100D0}"
 EndProject

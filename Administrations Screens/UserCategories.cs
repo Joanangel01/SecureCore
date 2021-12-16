@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sprint2
+namespace Administrations_Screens
 {
     using System;
     using System.Collections.Generic;

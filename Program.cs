@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sprint2
+namespace SecureCore
 {
     static class Program
     {

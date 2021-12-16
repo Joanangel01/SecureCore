@@ -1,7 +1,7 @@
 ﻿
 namespace Administrations_Screens
 {
-    partial class User_administration
+    partial class UserAdministration
     {
         /// <summary>
         /// Required designer variable.

@@ -20,10 +20,7 @@ namespace CustomControls
             InitializeComponent();
         }
 
-        class ConnectionToDB : Connection
-        {
-
-        }
+        class ConnectionToDB : Connection { }
 
         DataSet dts;
 
@@ -98,27 +95,41 @@ namespace CustomControls
             else textBoxCode.Focus();
         }
 
-        private string ValidaCodi(string code)
+        private void InitDataset()
         {
             string text = "select " + NomCodi + ", " + NomDesc + " from " + NomTaula;
-            string descripcio = "";
-            int index = 1;
 
-            dts = new DataSet();
             Connection connection = new ConnectionToDB();
             connection.Conectar();
             dts = connection.PortarPerConsulta(text);
+        }
+
+        private string ValidaCodi(string code)
+        {
+
+            string descripcio = "";
+            int index = 1;
+
+            InitDataset();
 
             foreach (DataColumn dataColumn in dts.Tables[0].Columns)
             {
-                if (dataColumn.ColumnName.Equals(NomCodi)) index = dataColumn.Ordinal;
+                if (dataColumn.ColumnName.Equals(NomCodi))
+                {
+                    index = dataColumn.Ordinal;
+                    break;
+                }
             }
 
             foreach (DataRow dataRow in dts.Tables[0].Rows)
             {
                 try
                 {
-                    if (dataRow[index].ToString().Equals(code)) descripcio = dataRow[1].ToString();    
+                    if (dataRow[index].ToString().Equals(code))
+                    {
+                        descripcio = dataRow[1].ToString();
+                        break;
+                    }
                 }
                 catch (Exception exception)
                 {
@@ -132,12 +143,14 @@ namespace CustomControls
         {
             if (e.KeyData == Keys.F2)
             {
+                InitDataset();
+
                 try
                 {
                     Assembly ensamblat = Assembly.LoadFrom($@"{_classeCS}.dll");
 
                     Type tipus = ensamblat.GetType($"{_classeCS}.{_formCS}");
-                    Object dllBD = Activator.CreateInstance(tipus);
+                    Object dllBD = Activator.CreateInstance(tipus, dts, this);
 
                     ((Form)dllBD).Show();
                 }

@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="agenciesDataSet.Designer.cs">
+    <Compile Include="dataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>agenciesDataSet.xsd</DependentUpon>
+      <DependentUpon>dataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
@@ -76,16 +76,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="agenciesDataSet.xsc">
-      <DependentUpon>agenciesDataSet.xsd</DependentUpon>
+    <None Include="dataSet.xsc">
+      <DependentUpon>dataSet.xsd</DependentUpon>
     </None>
-    <None Include="agenciesDataSet.xsd">
+    <None Include="dataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>agenciesDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>dataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="agenciesDataSet.xss">
-      <DependentUpon>agenciesDataSet.xsd</DependentUpon>
+    <None Include="dataSet.xss">
+      <DependentUpon>dataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

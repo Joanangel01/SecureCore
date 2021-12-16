@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{47D4208D-4033-476E-BD22-9E34B163151A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Sprint2</RootNamespace>
+    <RootNamespace>SecureCore</RootNamespace>
     <AssemblyName>SecureCore_StarPDO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Sprint2.Program</StartupObject>
+    <StartupObject>SecureCore.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -235,9 +235,9 @@
     <None Include="Resources\eye_icon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Administrations Screens\Administration_Screens.csproj">
+    <ProjectReference Include="Administrations Screens\Administrations_Screens.csproj">
       <Project>{d4452fd6-43a5-41a1-8138-65d84ab11146}</Project>
-      <Name>Administration_Screens</Name>
+      <Name>Administrations_Screens</Name>
     </ProjectReference>
     <ProjectReference Include="BaseForms\BaseForms.csproj">
       <Project>{bbfe4b85-aea3-4cd7-85fe-ebabaac95422}</Project>

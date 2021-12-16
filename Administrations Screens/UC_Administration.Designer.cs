@@ -1,5 +1,5 @@
 ﻿
-namespace Sprint2
+namespace SecureCore
 {
     partial class UC_Administration
     {

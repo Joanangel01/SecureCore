@@ -1,0 +1,12 @@
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\Administrations_Screens.dll.config
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\Administrations_Screens.dll
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\Administrations_Screens.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\SecureCore.UC_Administration.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.UserAdministration.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.csproj.GenerateResource.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.csproj.CoreCompileInputs.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.csproj.CopyComplete
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.dll
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.SpeciesAdministration.resources
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\Administrations Screens\obj\Debug\Administrations_Screens.csproj.AssemblyReference.cache

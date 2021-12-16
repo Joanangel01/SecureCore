@@ -87,11 +87,11 @@
     <Compile Include="UserCategories.cs">
       <DependentUpon>ModelUC.tt</DependentUpon>
     </Compile>
-    <Compile Include="User_administration.cs">
+    <Compile Include="UserAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_administration.Designer.cs">
-      <DependentUpon>User_administration.cs</DependentUpon>
+    <Compile Include="UserAdministration.Designer.cs">
+      <DependentUpon>UserAdministration.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +101,8 @@
     <EmbeddedResource Include="UC_Administration.resx">
       <DependentUpon>UC_Administration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_administration.resx">
-      <DependentUpon>User_administration.cs</DependentUpon>
+    <EmbeddedResource Include="UserAdministration.resx">
+      <DependentUpon>UserAdministration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +143,9 @@
       <DependentUpon>ModelUC.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

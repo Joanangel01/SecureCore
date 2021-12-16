@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sprint2
+namespace SecureCore
 {
     public partial class Exemple : Form
     {

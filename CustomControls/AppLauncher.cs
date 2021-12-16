@@ -24,7 +24,7 @@ namespace CustomControls
         public string Classe
         {
             get { return _classe; }
-                
+
             set { _classe = value; }
         }
 
@@ -71,7 +71,7 @@ namespace CustomControls
         {
             LoadLabel();
             LoadIcon();
-            
+
         }
 
         void LoadLabel()
@@ -79,7 +79,6 @@ namespace CustomControls
             button.Text = _labelText;
         }
 
-        
         void LoadIcon()
         {
             if (_imageUrl is null || _imageUrl.Length == 0) _imageUrl = "https://i.blogs.es/594843/chrome/450_1000.jpg";

@@ -52,3 +52,7 @@ C:\Users\ASUS\execute\CustomControls.dll
 C:\Users\ASUS\execute\CustomControls.pdb
 C:\Users\ASUS\Desktop\SecureCore\execute\CustomControls.dll
 C:\Users\ASUS\Desktop\SecureCore\execute\CustomControls.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\CustomControls.dll
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\CustomControls.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CustomControls\obj\Debug\CustomControls.csproj.CopyComplete
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CustomControls\obj\Debug\CustomControls.DataGridViewForm.resources

@@ -14,7 +14,7 @@ using System.Drawing.Drawing2D;
 using System.Net;
 using System.IO;
 
-namespace Sprint2
+namespace SecureCore
 {
     public partial class MenuScreen : Form
     {

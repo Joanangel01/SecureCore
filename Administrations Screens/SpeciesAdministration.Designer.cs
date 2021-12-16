@@ -1,5 +1,5 @@
 ﻿
-namespace Sprint2
+namespace Administrations_Screens
 {
     partial class SpeciesAdministration
     {
@@ -32,6 +32,7 @@ namespace Sprint2
             this.swTextBox1 = new CustomControls.SwTextBox();
             this.swTextBox2 = new CustomControls.SwTextBox();
             this.swTextBox3 = new CustomControls.SwTextBox();
+            this.swCodi1 = new CustomControls.SwCodi();
             this.SuspendLayout();
             // 
             // swTextBox1
@@ -40,9 +41,10 @@ namespace Sprint2
             this.swTextBox1.Empty = false;
             this.swTextBox1.FieldBinding = "DescSpecie";
             this.swTextBox1.ForeignKey = false;
-            this.swTextBox1.Location = new System.Drawing.Point(282, 22);
+            this.swTextBox1.Location = new System.Drawing.Point(423, 34);
+            this.swTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox1.Name = "swTextBox1";
-            this.swTextBox1.Size = new System.Drawing.Size(100, 22);
+            this.swTextBox1.Size = new System.Drawing.Size(148, 31);
             this.swTextBox1.TabIndex = 11;
             // 
             // swTextBox2
@@ -51,9 +53,10 @@ namespace Sprint2
             this.swTextBox2.Empty = false;
             this.swTextBox2.FieldBinding = "CodeSpecie";
             this.swTextBox2.ForeignKey = false;
-            this.swTextBox2.Location = new System.Drawing.Point(146, 22);
+            this.swTextBox2.Location = new System.Drawing.Point(219, 34);
+            this.swTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox2.Name = "swTextBox2";
-            this.swTextBox2.Size = new System.Drawing.Size(100, 22);
+            this.swTextBox2.Size = new System.Drawing.Size(148, 31);
             this.swTextBox2.TabIndex = 12;
             // 
             // swTextBox3
@@ -62,24 +65,44 @@ namespace Sprint2
             this.swTextBox3.Empty = false;
             this.swTextBox3.FieldBinding = "idSpecie";
             this.swTextBox3.ForeignKey = false;
-            this.swTextBox3.Location = new System.Drawing.Point(27, 22);
+            this.swTextBox3.Location = new System.Drawing.Point(40, 34);
+            this.swTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox3.Name = "swTextBox3";
-            this.swTextBox3.Size = new System.Drawing.Size(100, 22);
+            this.swTextBox3.Size = new System.Drawing.Size(148, 31);
             this.swTextBox3.TabIndex = 13;
+            // 
+            // swCodi1
+            // 
+            this.swCodi1.ClasseCS = "CustomControls";
+            this.swCodi1.ControlID = null;
+            this.swCodi1.FormCS = "DataGridViewForm";
+            this.swCodi1.Location = new System.Drawing.Point(219, 607);
+            this.swCodi1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.swCodi1.Name = "swCodi1";
+            this.swCodi1.NomCodi = "CodeSpecie";
+            this.swCodi1.NomDesc = "DescSpecie";
+            this.swCodi1.NomID = "idSpecie";
+            this.swCodi1.NomTaula = "Species";
+            this.swCodi1.Required = false;
+            this.swCodi1.Size = new System.Drawing.Size(578, 73);
+            this.swCodi1.TabIndex = 14;
             // 
             // SpeciesAdministration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 703);
+            this.Controls.Add(this.swCodi1);
             this.Controls.Add(this.swTextBox3);
             this.Controls.Add(this.swTextBox2);
             this.Controls.Add(this.swTextBox1);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "SpeciesAdministration";
             this.Text = "SpeciesAdministration";
             this.Controls.SetChildIndex(this.swTextBox1, 0);
             this.Controls.SetChildIndex(this.swTextBox2, 0);
             this.Controls.SetChildIndex(this.swTextBox3, 0);
+            this.Controls.SetChildIndex(this.swCodi1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,5 +113,6 @@ namespace Sprint2
         private CustomControls.SwTextBox swTextBox1;
         private CustomControls.SwTextBox swTextBox2;
         private CustomControls.SwTextBox swTextBox3;
+        public CustomControls.SwCodi swCodi1;
     }
 }

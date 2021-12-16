@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConnectionLibrary;
 using System.Security.Cryptography;
-namespace Sprint2
+namespace SecureCore
 {
     public partial class LoginScreen : Form
     {

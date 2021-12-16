@@ -11,3 +11,11 @@ C:\Users\ASUS\Desktop\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb
 C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.exe.config
 C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.exe
 C:\Users\ASUS\Desktop\SecureCore\execute\CommandConsoles.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\CommandConsoles.exe.config
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\CommandConsoles.exe
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\execute\CommandConsoles.pdb
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.AssemblyReference.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CoreCompileInputs.cache
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CopyComplete
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.exe
+C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb

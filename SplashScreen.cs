@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-namespace Sprint2
+
+namespace SecureCore
 {
     public partial class SplashScreen : Form
     {

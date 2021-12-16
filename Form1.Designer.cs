@@ -1,5 +1,5 @@
 ﻿
-namespace Sprint2
+namespace SecureCore
 {
     partial class Exemple
     {
@@ -30,8 +30,8 @@ namespace Sprint2
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.userAdminsitration2 = new Sprint2.userAdminsitration();
-            this.userAdminsitration1 = new Sprint2.userAdminsitration();
+            this.userAdminsitration2 = new SecureCore.userAdminsitration();
+            this.userAdminsitration1 = new SecureCore.userAdminsitration();
             this.SuspendLayout();
             // 
             // crystalReportViewer1

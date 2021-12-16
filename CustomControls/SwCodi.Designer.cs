@@ -35,9 +35,10 @@ namespace CustomControls
             // 
             // textBoxCode
             // 
-            this.textBoxCode.Location = new System.Drawing.Point(13, 12);
+            this.textBoxCode.Location = new System.Drawing.Point(20, 19);
+            this.textBoxCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(54, 22);
+            this.textBoxCode.Size = new System.Drawing.Size(79, 31);
             this.textBoxCode.TabIndex = 0;
             this.textBoxCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxCode_KeyDown);
             this.textBoxCode.Leave += new System.EventHandler(this.TextBoxCode_Leave);
@@ -45,20 +46,22 @@ namespace CustomControls
             // textBoxDesc
             // 
             this.textBoxDesc.Enabled = false;
-            this.textBoxDesc.Location = new System.Drawing.Point(73, 12);
+            this.textBoxDesc.Location = new System.Drawing.Point(110, 19);
+            this.textBoxDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDesc.Name = "textBoxDesc";
-            this.textBoxDesc.Size = new System.Drawing.Size(301, 22);
+            this.textBoxDesc.Size = new System.Drawing.Size(450, 31);
             this.textBoxDesc.TabIndex = 1;
             this.textBoxDesc.TabStop = false;
             // 
             // SwCodi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBoxDesc);
             this.Controls.Add(this.textBoxCode);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SwCodi";
-            this.Size = new System.Drawing.Size(385, 47);
+            this.Size = new System.Drawing.Size(578, 73);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,7 +69,7 @@ namespace CustomControls
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxCode;
-        private System.Windows.Forms.TextBox textBoxDesc;
+        public System.Windows.Forms.TextBox textBoxCode;
+        public System.Windows.Forms.TextBox textBoxDesc;
     }
 }

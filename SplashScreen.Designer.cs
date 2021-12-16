@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Sprint2
+namespace SecureCore
 {
     partial class SplashScreen
     {
