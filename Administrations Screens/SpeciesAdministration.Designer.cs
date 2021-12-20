@@ -32,7 +32,6 @@ namespace Administrations_Screens
             this.swTextBox1 = new CustomControls.SwTextBox();
             this.swTextBox2 = new CustomControls.SwTextBox();
             this.swTextBox3 = new CustomControls.SwTextBox();
-            this.swCodi1 = new CustomControls.SwCodi();
             this.SuspendLayout();
             // 
             // swTextBox1
@@ -71,28 +70,11 @@ namespace Administrations_Screens
             this.swTextBox3.Size = new System.Drawing.Size(148, 31);
             this.swTextBox3.TabIndex = 13;
             // 
-            // swCodi1
-            // 
-            this.swCodi1.ClasseCS = "CustomControls";
-            this.swCodi1.ControlID = null;
-            this.swCodi1.FormCS = "DataGridViewForm";
-            this.swCodi1.Location = new System.Drawing.Point(219, 607);
-            this.swCodi1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.swCodi1.Name = "swCodi1";
-            this.swCodi1.NomCodi = "CodeSpecie";
-            this.swCodi1.NomDesc = "DescSpecie";
-            this.swCodi1.NomID = "idSpecie";
-            this.swCodi1.NomTaula = "Species";
-            this.swCodi1.Required = false;
-            this.swCodi1.Size = new System.Drawing.Size(578, 73);
-            this.swCodi1.TabIndex = 14;
-            // 
             // SpeciesAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 703);
-            this.Controls.Add(this.swCodi1);
             this.Controls.Add(this.swTextBox3);
             this.Controls.Add(this.swTextBox2);
             this.Controls.Add(this.swTextBox1);
@@ -102,7 +84,6 @@ namespace Administrations_Screens
             this.Controls.SetChildIndex(this.swTextBox1, 0);
             this.Controls.SetChildIndex(this.swTextBox2, 0);
             this.Controls.SetChildIndex(this.swTextBox3, 0);
-            this.Controls.SetChildIndex(this.swCodi1, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +94,5 @@ namespace Administrations_Screens
         private CustomControls.SwTextBox swTextBox1;
         private CustomControls.SwTextBox swTextBox2;
         private CustomControls.SwTextBox swTextBox3;
-        public CustomControls.SwCodi swCodi1;
     }
 }
