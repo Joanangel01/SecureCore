@@ -136,9 +136,6 @@ C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore.Properti
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CopyComplete
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\userAdminsitration.rpt
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\userAdminsitration.cs
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore_StarPDO.exe.config
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore_StarPDO.exe
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore_StarPDO.pdb
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\AxShockwaveFlashObjects.dll
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\CloudinaryDotNet.dll
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\CrystalDecisions.CrystalReports.Engine.dll
@@ -191,7 +188,6 @@ C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\Microsoft.Extension
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\Newtonsoft.Json.xml
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\System.Text.Encodings.Web.xml
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.AssemblyReference.cache
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.Exemple.resources
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.LoginScreen.resources
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.MenuScreen.resources
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.Properties.Resources.resources
@@ -200,5 +196,9 @@ C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.UserPr
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.GenerateResource.cache
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CoreCompileInputs.cache
 C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.csproj.CopyComplete
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.exe
-C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore_StarPDO.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore.exe.config
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore.exe
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\SecureCore.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.exe
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\obj\Debug\SecureCore.UserCard.resources

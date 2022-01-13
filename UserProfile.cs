@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConnectionLibrary;
 using CloudinaryDotNet;
@@ -16,6 +11,7 @@ namespace SecureCore
     public partial class UserProfile : Form
     {
         DataSet dts;
+
         class ConnectionToDB : Connection
         {
 
@@ -25,6 +21,7 @@ namespace SecureCore
             InitializeComponent();
         }
 
+        UserCard userCard = new UserCard();
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
@@ -96,6 +93,13 @@ namespace SecureCore
 
         private void CloseImg_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.userCard.Show();
             this.Close();
         }
     }
