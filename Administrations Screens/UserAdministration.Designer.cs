@@ -34,6 +34,8 @@ namespace Administrations_Screens
             this.swTextBox3 = new CustomControls.SwTextBox();
             this.swCodi1 = new CustomControls.SwCodi();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.swCodi2 = new CustomControls.SwCodi();
             this.SuspendLayout();
             // 
             // swTextBox1
@@ -80,7 +82,7 @@ namespace Administrations_Screens
             this.swCodi1.Location = new System.Drawing.Point(396, 683);
             this.swCodi1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swCodi1.Name = "swCodi1";
-            this.swCodi1.NomCodi = "CodeRank";
+            this.swCodi1.NomCodi = "idUserRank";
             this.swCodi1.NomDesc = "DescRank";
             this.swCodi1.NomID = "idUserRank";
             this.swCodi1.NomTaula = "UserRanks";
@@ -98,11 +100,39 @@ namespace Administrations_Screens
             this.label1.TabIndex = 16;
             this.label1.Text = "User Ranks:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(201, 794);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 31);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Planets";
+            // 
+            // swCodi2
+            // 
+            this.swCodi2.ClasseCS = "CustomControls";
+            this.swCodi2.ControlID = null;
+            this.swCodi2.FormCS = "DataGridViewForm";
+            this.swCodi2.Location = new System.Drawing.Point(396, 779);
+            this.swCodi2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.swCodi2.Name = "swCodi2";
+            this.swCodi2.NomCodi = "idPlanet";
+            this.swCodi2.NomDesc = "DescPlanet";
+            this.swCodi2.NomID = "idPlanet";
+            this.swCodi2.NomTaula = "Planets";
+            this.swCodi2.Required = false;
+            this.swCodi2.Size = new System.Drawing.Size(578, 73);
+            this.swCodi2.TabIndex = 17;
+            // 
             // UserAdministration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1341, 936);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.swCodi2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.swCodi1);
             this.Controls.Add(this.swTextBox3);
@@ -116,6 +146,8 @@ namespace Administrations_Screens
             this.Controls.SetChildIndex(this.swTextBox3, 0);
             this.Controls.SetChildIndex(this.swCodi1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.swCodi2, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +160,7 @@ namespace Administrations_Screens
         private CustomControls.SwTextBox swTextBox3;
         public CustomControls.SwCodi swCodi1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        public CustomControls.SwCodi swCodi2;
     }
 }

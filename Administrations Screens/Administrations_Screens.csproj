@@ -47,6 +47,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,6 +58,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelSector.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSector.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSector.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSector.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelSector.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSector.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SectorAdministration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SectorAdministration.Designer.cs">
+      <DependentUpon>SectorAdministration.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelUC.Context.cs">
       <DependentUpon>ModelUC.Context.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -72,6 +95,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sectors.cs">
+      <DependentUpon>ModelSector.tt</DependentUpon>
+    </Compile>
     <Compile Include="SpeciesAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +121,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SectorAdministration.resx">
+      <DependentUpon>SectorAdministration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpeciesAdministration.resx">
       <DependentUpon>SpeciesAdministration.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +155,16 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ModelSector.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSector.edmx</DependentUpon>
+      <LastGenOutput>ModelSector.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelSector.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSector.edmx</DependentUpon>
+      <LastGenOutput>ModelSector.cs</LastGenOutput>
+    </Content>
     <Content Include="ModelUC.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelUC.edmx</DependentUpon>
@@ -139,6 +178,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="ModelSector.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelSector.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelSector.edmx.diagram">
+      <DependentUpon>ModelSector.edmx</DependentUpon>
+    </None>
     <None Include="ModelUC.edmx.diagram">
       <DependentUpon>ModelUC.edmx</DependentUpon>
     </None>

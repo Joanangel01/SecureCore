@@ -19,3 +19,11 @@ C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\Com
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CopyComplete
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.exe
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\CommandConsoles.exe.config
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\CommandConsoles.exe
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\CommandConsoles.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.AssemblyReference.cache
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CoreCompileInputs.cache
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.csproj.CopyComplete
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.exe
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\CommandConsoles\obj\Debug\CommandConsoles.pdb

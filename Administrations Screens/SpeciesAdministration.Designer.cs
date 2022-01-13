@@ -40,7 +40,7 @@ namespace Administrations_Screens
             this.swTextBox1.Empty = false;
             this.swTextBox1.FieldBinding = "DescSpecie";
             this.swTextBox1.ForeignKey = false;
-            this.swTextBox1.Location = new System.Drawing.Point(423, 34);
+            this.swTextBox1.Location = new System.Drawing.Point(590, 125);
             this.swTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox1.Name = "swTextBox1";
             this.swTextBox1.Size = new System.Drawing.Size(148, 31);
@@ -52,7 +52,7 @@ namespace Administrations_Screens
             this.swTextBox2.Empty = false;
             this.swTextBox2.FieldBinding = "CodeSpecie";
             this.swTextBox2.ForeignKey = false;
-            this.swTextBox2.Location = new System.Drawing.Point(219, 34);
+            this.swTextBox2.Location = new System.Drawing.Point(386, 125);
             this.swTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox2.Name = "swTextBox2";
             this.swTextBox2.Size = new System.Drawing.Size(148, 31);
@@ -64,7 +64,7 @@ namespace Administrations_Screens
             this.swTextBox3.Empty = false;
             this.swTextBox3.FieldBinding = "idSpecie";
             this.swTextBox3.ForeignKey = false;
-            this.swTextBox3.Location = new System.Drawing.Point(40, 34);
+            this.swTextBox3.Location = new System.Drawing.Point(207, 125);
             this.swTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.swTextBox3.Name = "swTextBox3";
             this.swTextBox3.Size = new System.Drawing.Size(148, 31);

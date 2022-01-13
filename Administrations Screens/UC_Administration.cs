@@ -1,60 +1,48 @@
-﻿using Administrations_Screens;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SecureCore
+namespace Administrations_Screens
 {
     public partial class UC_Administration : Form
     {
         SecureCoreEntities db;
         bool isNew = false;
-        List<UserCategories> cat;
+        List<UserCategories> categoriesList;
+
         public UC_Administration(string nomTaula)
         {
             InitializeComponent();
-            nomTaula.Replace(nomTaula, "");
+            nomTaula.Replace(nomTaula, ""); 
         }
 
-        private void UC_Administration_QueryAccessibilityHelp(object sender, QueryAccessibilityHelpEventArgs e)
+        private void UC_Administration_Load(object sender, EventArgs e)
         {
-
+            CarregarDades(true);
         }
 
-        private void CarregarDades()
+        private void CarregarDades(bool hasNew)
         {
             db = new SecureCoreEntities();
 
-            cat = db.UserCategories.ToList();
+            categoriesList = db.UserCategories.ToList();
 
-            dataGridView1.DataSource = cat;
-            FerBinding();
+            dataGridView1.DataSource = categoriesList;
+            if (hasNew)
+            {
+                FerBinding();
+            }
         }
 
         private void FerBinding()
         {
             swTextBox2.Clear();
-            swTextBox2.DataBindings.Add("Text", cat, swTextBox2.FieldBinding);
+            swTextBox2.DataBindings.Add("Text", categoriesList, swTextBox2.FieldBinding);
             swTextBox3.Clear();
-            swTextBox3.DataBindings.Add("Text", cat, swTextBox3.FieldBinding);
-            //swTextBox4.Clear();
-            //swTextBox4.DataBindings.Add("Text", cat, swTextBox4.FieldBinding);
-        }
-
-        private void UC_Administration_Load(object sender, EventArgs e)
-        {
-            CarregarDades();
-        }
-
-        private void TreuBinding()
-        {
-
+            swTextBox3.DataBindings.Add("Text", categoriesList, swTextBox3.FieldBinding);
+            swTextBox4.Clear();
+            swTextBox4.DataBindings.Add("Text", categoriesList, swTextBox4.FieldBinding);
         }
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
@@ -70,8 +58,9 @@ namespace SecureCore
                 };
                 db.UserCategories.Add(usc);
             }
-            //db.SaveChanges();
-            MessageBox.Show("Hehe");
+            db.SaveChanges();
+            MessageBox.Show("Canvis realitzats!");
+            CarregarDades(false);
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
@@ -80,14 +69,14 @@ namespace SecureCore
             TreuBinding();
         }
 
-        private void SwTextBox4_Validated(object sender, EventArgs e)
+        private void TreuBinding()
         {
-            
-        }
-
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            
+            swTextBox2.Clear();
+            swTextBox2.DataBindings.Clear();
+            swTextBox3.Clear();
+            swTextBox3.DataBindings.Clear();
+            swTextBox4.Clear();
+            swTextBox4.DataBindings.Clear();
         }
     }
 }

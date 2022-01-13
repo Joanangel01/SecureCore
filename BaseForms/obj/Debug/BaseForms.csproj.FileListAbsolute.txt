@@ -42,3 +42,14 @@ C:\Users\joana\Source\Repos\Joanangel01\SecureCore\BaseForms\obj\Debug\BaseForms
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.CopyComplete
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\BaseForms\obj\Debug\BaseForms.dll
 C:\Users\joana\Source\Repos\Joanangel01\SecureCore\BaseForms\obj\Debug\BaseForms.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\BaseForms.dll.config
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\BaseForms.dll
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\execute\BaseForms.pdb
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.AssemblyReference.cache
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.FrmBase.resources
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.Properties.Resources.resources
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.GenerateResource.cache
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.CoreCompileInputs.cache
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.csproj.CopyComplete
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.dll
+C:\Users\joana\OneDrive\Documentos\GitHub\SecureCore\BaseForms\obj\Debug\BaseForms.pdb
