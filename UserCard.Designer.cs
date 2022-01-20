@@ -30,7 +30,6 @@ namespace SecureCore
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.userAdminsitration2 = new SecureCore.userAdminsitration();
             this.userAdminsitration1 = new SecureCore.userAdminsitration();
             this.SuspendLayout();
             // 
@@ -41,8 +40,8 @@ namespace SecureCore
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.userAdminsitration2;
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
             this.crystalReportViewer1.ShowExportButton = false;
@@ -53,22 +52,21 @@ namespace SecureCore
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.ShowTextSearchButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(533, 288);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1298, 892);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // Exemple
+            // UserCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 288);
+            this.ClientSize = new System.Drawing.Size(1298, 892);
             this.ControlBox = false;
             this.Controls.Add(this.crystalReportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Exemple";
+            this.Name = "UserCard";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Exemple_Load);
+            this.Load += new System.EventHandler(this.UserCard_Load);
             this.ResumeLayout(false);
 
         }
@@ -77,6 +75,5 @@ namespace SecureCore
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private userAdminsitration userAdminsitration1;
-        private userAdminsitration userAdminsitration2;
     }
 }

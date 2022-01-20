@@ -48,7 +48,6 @@ namespace SecureCore
                 lblName.Text = item[5].ToString();
                 lblPlanet.Text = item[6].ToString();
             }
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -88,7 +87,6 @@ namespace SecureCore
                     }
                 }
             }
-
         }
 
         private void CloseImg_Click(object sender, EventArgs e)

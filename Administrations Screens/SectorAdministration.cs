@@ -7,9 +7,9 @@ namespace Administrations_Screens
 {
     public partial class SectorAdministration : Form
     {
-        SectorsEntities dbs;
+        //SectoresEntities dbs;
         bool isNew = false;
-        List<Sectors> sectorsList;
+        //List<Sectors> sectorsList;
 
         public SectorAdministration(string nomTaula)
         {
@@ -24,11 +24,10 @@ namespace Administrations_Screens
 
         private void CarregarDades(bool hasNew)
         {
-            dbs = new SectorsEntities();
+            //dbs = new SectoresEntities();
+            //sectorsList = dbs.Sectors.ToList();
 
-            sectorsList = dbs.Sectors.ToList();
-
-            dataGridView1.DataSource = sectorsList;
+            //dataGridView1.DataSource = sectorsList;
             if (hasNew)
             {
                 FerBinding();
@@ -38,30 +37,30 @@ namespace Administrations_Screens
         private void FerBinding()
         {
             swTextBox2.Clear();
-            swTextBox2.DataBindings.Add("Text", sectorsList, swTextBox2.FieldBinding);
+            //swTextBox2.DataBindings.Add("Text", sectorsList, swTextBox2.FieldBinding);
             swTextBox3.Clear();
-            swTextBox3.DataBindings.Add("Text", sectorsList, swTextBox3.FieldBinding);
+            //swTextBox3.DataBindings.Add("Text", sectorsList, swTextBox3.FieldBinding);
             swTextBox4.Clear();
-            swTextBox4.DataBindings.Add("Text", sectorsList, swTextBox4.FieldBinding);
+            //swTextBox4.DataBindings.Add("Text", sectorsList, swTextBox4.FieldBinding);
             swTextBox1.Clear();
-            swTextBox1.DataBindings.Add("Number", sectorsList, swTextBox1.FieldBinding);
+            //swTextBox1.DataBindings.Add("Number", sectorsList, swTextBox1.FieldBinding);
         }
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
             if (isNew)
             {
-                Sectors sector = new Sectors
+                /*Sectors sector = new Sectors
                 {
                     idSector = 1,
                     CodeSector = swTextBox2.Text,
                     DescSector = swTextBox3.Text,
                     Remarks = swTextBox4.Text,
                     idRegion = int.Parse(swTextBox1.Text)
-                };
-                dbs.Sectors.Add(sector);
+                };*/
+                //dbs.Sectors.Add(sector);
             }
-            dbs.SaveChanges();
+            //dbs.SaveChanges();
             MessageBox.Show("Canvis realitzats!");
             CarregarDades(false);
         }

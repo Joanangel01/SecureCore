@@ -58,21 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelSector.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSector.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSector.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSector.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSector.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSector.edmx</DependentUpon>
-    </Compile>
     <Compile Include="SectorAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +80,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sectors.cs">
-      <DependentUpon>ModelSector.tt</DependentUpon>
-    </Compile>
     <Compile Include="SpeciesAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,16 +137,6 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ModelSector.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSector.edmx</DependentUpon>
-      <LastGenOutput>ModelSector.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelSector.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSector.edmx</DependentUpon>
-      <LastGenOutput>ModelSector.cs</LastGenOutput>
-    </Content>
     <Content Include="ModelUC.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelUC.edmx</DependentUpon>
@@ -178,13 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="ModelSector.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSector.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ModelSector.edmx.diagram">
-      <DependentUpon>ModelSector.edmx</DependentUpon>
-    </None>
     <None Include="ModelUC.edmx.diagram">
       <DependentUpon>ModelUC.edmx</DependentUpon>
     </None>

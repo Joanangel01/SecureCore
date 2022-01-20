@@ -21,6 +21,7 @@ namespace SecureCore
         DataSet dts;
         private bool mouseDown;
         private Point lastLocation;
+        UserCard userCard = new UserCard();
         
         class ConnectionToDB : Connection
         {

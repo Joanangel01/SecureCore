@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SecureCoreModelSectorStoreContainer" CdmEntityContainer="SectorsEntities">
+  <EntityContainerMapping StorageEntityContainer="SecureCoreModel1StoreContainer" CdmEntityContainer="SectoresEntities">
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="SecureCoreModel1.Regions">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+          <ScalarProperty Name="CodeRegion" ColumnName="CodeRegion" />
+          <ScalarProperty Name="DescRegion" ColumnName="DescRegion" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Sectors">
-      <EntityTypeMapping TypeName="SecureCoreModelSector.Sectors">
+      <EntityTypeMapping TypeName="SecureCoreModel1.Sectors">
         <MappingFragment StoreEntitySet="Sectors">
           <ScalarProperty Name="idSector" ColumnName="idSector" />
           <ScalarProperty Name="CodeSector" ColumnName="CodeSector" />

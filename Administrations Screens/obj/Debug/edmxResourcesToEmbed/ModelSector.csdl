@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SecureCoreModelSector" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="SecureCoreModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="idRegion" />
+    </Key>
+    <Property Name="idRegion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeRegion" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DescRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sectors" Relationship="Self.FK_Sectors_Regions" FromRole="Regions" ToRole="Sectors" />
+  </EntityType>
   <EntityType Name="Sectors">
     <Key>
       <PropertyRef Name="idSector" />
@@ -9,8 +19,26 @@
     <Property Name="DescSector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="idRegion" Type="Int32" />
+    <NavigationProperty Name="Regions" Relationship="Self.FK_Sectors_Regions" FromRole="Sectors" ToRole="Regions" />
   </EntityType>
-  <EntityContainer Name="SectorsEntities" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_Sectors_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+    <End Role="Sectors" Type="Self.Sectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="idRegion" />
+      </Principal>
+      <Dependent Role="Sectors">
+        <PropertyRef Name="idRegion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SectoresEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Regions" EntityType="Self.Regions" />
     <EntitySet Name="Sectors" EntityType="Self.Sectors" />
+    <AssociationSet Name="FK_Sectors_Regions" Association="Self.FK_Sectors_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Sectors" EntitySet="Sectors" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
