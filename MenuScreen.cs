@@ -189,6 +189,7 @@ namespace SecureCore
                     Height = 50,
                     Dock = DockStyle.Top
                 };
+                
 
                 panelLeft.Controls.Add(appLauncher);   
             }

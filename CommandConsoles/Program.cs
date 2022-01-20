@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ConnectionLibrary;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
-using ConnectionLibrary;
-using System.Data;
 
 namespace CommandConsole
 {
@@ -12,11 +12,28 @@ namespace CommandConsole
     {
 
     }
+    public class Article
+    {
+        public String planetaDestino;
+        public String codigo;
+        public String codificacion;
+        public bool esDevolucion;
+        public int cantidad;
+        public String fechaEntrega;
+        public Article(String planetaDestinoInput, String codigoInput, String codificacionInput, bool esDevolucionInput, int cantidadInput, String fechaEntregaInput)
+        {
+            planetaDestino = planetaDestinoInput;
+            codigo = codigoInput;
+            codificacion = codificacionInput;
+            esDevolucion = esDevolucionInput;
+            cantidad = cantidadInput;
+            fechaEntrega = fechaEntregaInput;
+        }
+    }
     class Program
     {
-
         static DataSet dts;
-        const string path = "../../FitxerDescarregat.edi";
+        const string path = "../../../execute/FitxerDescarregat.edi";
         private static List<string> ProcessLine(string linia)
         {
             List<string> camps = new List<string>();
@@ -36,32 +53,108 @@ namespace CommandConsole
                 camps.Add("ERROR");
             }
 
-
-
             return camps;
+        }
+        private static string FormatDateOrder(string fecha)
+        {
+        
+            fecha = fecha.Substring(0, 4) + "-" + fecha.Substring(4, 2) + "-" + fecha.Substring(6, 2) + " 00:00:00";
+            return fecha;
+        }
+        private static dynamic InsertaraBBDD(Dictionary<string, dynamic> mapaPedido)
+        {
+            ConnectionToDB conn = new ConnectionToDB();
+            DataSet dts;
+            string idReferencia, idPlanet, idFactory, idPriority;
+            string queryArticle, queryOrder;
+            string esUrgente, idOrder, idOperationalArea, idAgency;
+
+            if (mapaPedido["esUrgente"])
+            {
+                esUrgente = "22E";
+            }
+            else
+            {
+                esUrgente = "220";
+            }
+            conn.Conectar();
+            queryOrder = "SELECT Factories.idFactory, Priority.idPriority , OperationalAreas.idOperationalArea, Agencies.idAgency "+
+                         "FROM Factories, Priority, OperationalAreas, Agencies " +
+                         "WHERE Factories.codeFactory = '" + mapaPedido["codigoFabrica"] + "' " +
+                         "AND Priority.CodePriority = '" + esUrgente + "' " +
+                         "AND UPPER(DescOperationalArea) = '" + mapaPedido["zonaOperativa"].ToUpper()+"' "+
+                         "AND Agencies.CodeAgency = '" + mapaPedido["emisor"].ToString()+ "'";
+            dts = conn.PortarPerConsulta(queryOrder);
+
+            idFactory = dts.Tables[0].Rows[0]["idFactory"].ToString();
+            idPriority = dts.Tables[0].Rows[0]["idPriority"].ToString();
+            idOperationalArea = dts.Tables[0].Rows[0]["idOperationalArea"].ToString();
+            idAgency = dts.Tables[0].Rows[0]["idAgency"].ToString();
+
+            mapaPedido["fechaDocumento"] = FormatDateOrder(mapaPedido["fechaDocumento"]);
+            queryOrder = "INSERT INTO Orders (codeOrder, dateOrder, IdPriority, IdFactory" + ")"+
+                          " VALUES (" + mapaPedido["codigoPedido"] + " , CONVERT(smalldatetime, '" + mapaPedido["fechaDocumento"] + 
+                          "',101) , " + idPriority+ " , " + idFactory + ")";
+            conn.Executa(queryOrder);
+
+            idOrder = "SELECT MAX(idOrder) idOrder FROM Orders";
+            dts = conn.PortarPerConsulta(idOrder);
+
+            idOrder = dts.Tables[0].Rows[0]["idOrder"].ToString();
+
+            queryOrder = "INSERT INTO OrderInfo (idOrder, idAgency, idOperationalArea)" +
+                          "VALUES ("+ idOrder + ", " + idAgency + "," + idOperationalArea + ")";
+
+            conn.Executa(queryOrder);
+            foreach (Article article in mapaPedido["listaArticulos"])
+            {
+                conn.Conectar();
+                queryArticle = "Select[SecureCore].[dbo].[References].idReference, Planets.idPlanet "+
+                                "FROM[SecureCore].[dbo].[References], Planets "+ 
+                                "WHERE[SecureCore].[dbo].[References].codeReference = " + article.codigo +
+                                " AND UPPER(Planets.CodePlanet) = '" + article.planetaDestino + "'";
+
+
+                dts = conn.PortarPerConsulta(queryArticle);
+                idReferencia = dts.Tables[0].Rows[0]["idReference"].ToString();
+                idPlanet = dts.Tables[0].Rows[0]["idPlanet"].ToString();
+                article.fechaEntrega = FormatDateOrder(article.fechaEntrega);
+
+                queryArticle = "INSERT INTO OrdersDetail (idOrder,idPlanet,idReference,Quantity,DeliveryDate)" +
+                                "VALUES( " + idOrder + " , " + idPlanet + ", " + idReferencia + " , " + article.cantidad +
+                                ", CONVERT(smalldatetime, '2020-01-19 00:00:00', 101))";
+                conn.Executa(queryArticle);
+            }
+
+            return true;
         }
         private static bool Process()
         {
             // QUERY
-            int idUrgencia;
             string query;
             dts = new DataSet();
             Connection connexio = new ConnectionToDB();
-            
 
-            string linia, numOrd, fechaOrd, areaOperativa, emisor, receptor;
-            string planetaDestino, tipoCodigo, fechaEntrega;
-            int urgencia, calificador, cantidad;
+            string linia, numOrd = "", fechaOrd = "", areaOperativa = "", emisor="", receptor="";
+            string planetaDestino, tipoCodigo, fechaEntrega = "";
+            int cantidad = 7777;
+            bool esDevolucion = false, esUrgente = false;
 
             //INT32 demasiado pequeño para el numero de Order
-            string codigo;
+            string codigo, titulo = "";
             //*******************
             bool correctOrder;
             StreamReader sr = new StreamReader(path);
-            linia = sr.ReadLine();
+            
             List<string> campsLinia;
-
+            
             correctOrder = true;
+
+            List<Article> listaArticulos = new List<Article>();
+
+            Dictionary<string, dynamic> mapaPedido = new Dictionary<string, dynamic>();
+
+            linia = sr.ReadLine();
             while (linia != null)
             {
                 campsLinia = ProcessLine(linia);
@@ -69,27 +162,43 @@ namespace CommandConsole
                 switch (campsLinia.First())
                 {
                     case "ORD":
-
                         numOrd = campsLinia[1];
-
-                        urgencia = int.Parse(campsLinia[2]);
-
-                        query = "SELECT idPriority FROM Priority Where CodePriority = " + urgencia.ToString();
-                        
+                        if (int.Parse(campsLinia[2]) == 220)
+                        {
+                            esUrgente = false;
+                        }
+                        else
+                        {
+                            esUrgente = true;
+                        }
+                        query = "SELECT idPriority FROM Priority Where CodePriority = '" + campsLinia[2] + "'";
+                        connexio.Conectar();
                         dts = connexio.PortarPerConsulta(query);
                         foreach (DataRow item in dts.Tables[0].Rows)
                         {
-                            idUrgencia = (int)item[0];
+                            linia = item[0].ToString();
                         }
-                        Console.WriteLine("-------------------------------" + urgencia);
+                        Console.WriteLine("-------------------------------" + linia);
                         break;
+
                     case "DTM":
                         fechaOrd = campsLinia[1];
 
                         break;
                     case "NADMS":
-                        areaOperativa = campsLinia[1];
+                        if (campsLinia[1].ToUpper().Equals("OUTER"))
+                        {
+                            areaOperativa = "Outer Ring";
+                        }else if (campsLinia[1].ToUpper().Equals("INNER"))
+                        {
+                            areaOperativa = "Inner Ring";
+                        }
+                        else
+                        {
+                            areaOperativa = "Uknown";
+                        }
                         emisor = campsLinia[2];
+                        
                         break;
                     case "NADMR":
                         receptor = campsLinia[1];
@@ -99,15 +208,26 @@ namespace CommandConsole
                         codigo = campsLinia[2];
                         tipoCodigo = campsLinia[3];
 
+                        //if(tipoCodigo.ToUpper().Equals())
+
+
                         linia = sr.ReadLine();
                         campsLinia = ProcessLine(linia);
+
                         while (linia != null && !campsLinia.First().Equals("LIN"))
                         {
                             Console.WriteLine(linia);
                             switch (campsLinia.First())
                             {
                                 case "QTYLIN":
-                                    calificador = Int32.Parse(campsLinia[1]);
+                                    if (campsLinia[1].Equals("21"))
+                                    {
+                                        esDevolucion = false;
+                                    }
+                                    else
+                                    {
+                                        esDevolucion = true;
+                                    }
                                     cantidad = Int32.Parse(campsLinia[2]);
                                     break;
 
@@ -118,18 +238,46 @@ namespace CommandConsole
 
                                     break;
                             }
-                            linia = sr.ReadLine();
-                            campsLinia = ProcessLine(linia);
+                            if (!campsLinia.First().Equals("DTMLIN"))
+                            {
+                                linia = sr.ReadLine();
+                                campsLinia = ProcessLine(linia);
+                            }
+                            else
+                            {
+                                break;
+                            }
+    
                         }
+                        Article producto = new Article(planetaDestinoInput: planetaDestino,
+                                                        codigoInput: codigo, codificacionInput: tipoCodigo,
+                                                        esDevolucionInput:esDevolucion,cantidadInput:cantidad,
+                                                        fechaEntregaInput:fechaEntrega) ;
+                        listaArticulos.Add(producto);
+
+                        
                         break;
                     default:
                         correctOrder = false;
                         Console.WriteLine(linia);
+                        titulo = linia;
                         break;
                 }
                 linia = sr.ReadLine();
             }
             sr.Close();
+
+            mapaPedido["titulo"] = titulo;
+            mapaPedido["codigoPedido"] = numOrd;
+            mapaPedido["esUrgente"] = esUrgente;
+            mapaPedido["fechaDocumento"] = fechaOrd;
+            mapaPedido["zonaOperativa"] = areaOperativa;
+            mapaPedido["emisor"] = emisor;
+            mapaPedido["codigoFabrica"] = receptor;
+
+            mapaPedido["listaArticulos"] = listaArticulos;
+
+            correctOrder = InsertaraBBDD(mapaPedido);
             return correctOrder;
         }
         private static void ViewOrder()
@@ -153,7 +301,8 @@ namespace CommandConsole
         }
         static void Main(string[] args)
         {
-            string menuOption;
+
+            string menuOption, msgProcess;
             bool correctInput, correctOrder;
             Console.ForegroundColor = ConsoleColor.Green;
             MostrarLogo();
@@ -164,10 +313,7 @@ namespace CommandConsole
                 correctInput = true;
                 switch (menuOption.ToUpper())
                 {
-                    case "UPLOAD":
-                        UploadFile();
-                        Console.WriteLine("Opcional, no esta fet");
-                        break;
+
                     case "DOWNLOAD":
                         Download();
                         break;
@@ -175,8 +321,15 @@ namespace CommandConsole
                         correctOrder = Process();
                         if (!correctOrder)
                         {
-                            Console.WriteLine("Error processant el fitxer. Siusplau torna a intentar-ho més tard...\n");
+                            msgProcess = "Error processant el fitxer. Siusplau torna a intentar-ho més tard...\n";
                         }
+                        else
+                        {
+                            msgProcess = "Fitxer processat amb èxit!";
+                        }
+
+                        Console.WriteLine(msgProcess); 
+
                         break;
                     case "VIEW":
                         ViewOrder();
@@ -190,17 +343,6 @@ namespace CommandConsole
                         break;
                 }
             } while (correctInput);
-
-            //   ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
-
-            //byte[] content = File.ReadAllBytes("hola.edi");
-            //ftpRequest.ContentLength = content.Length;
-            //Stream stream = ftpRequest.GetRequestStream();
-            //stream.Write(content, 0, content.Length);
-            //stream.Close();
-
-            //reader.Close();
-            //response.Close();
         }
 
         private static FtpWebRequest Connect()
@@ -261,7 +403,6 @@ namespace CommandConsole
         private static string MostrarMenu()
         {
             Console.WriteLine("══════════════════════════════════════════════════════════════");
-            Console.WriteLine("║    [UPLOAD] Puja fitxer al servidor                        ║");
             Console.WriteLine("║    [DOWNLOAD] Descarrega fitxer del servidor               ║");
             Console.WriteLine("║    [PROCESS] Processar el fitxer EDI                       ║");
             Console.WriteLine("║    [VIEW] Veure el formulari de visualització del llistat  ║");

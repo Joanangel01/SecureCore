@@ -105,36 +105,48 @@ namespace CustomControls
 
         private void Button_Click(object sender, EventArgs e)
         {
-            try
+            if (NomTaula.Equals("ComandConsole"))
             {
-                Assembly ensamblat = Assembly.LoadFrom($@"{_classe}.dll");
-
+                System.Diagnostics.Process.Start("CommandConsoles.exe");
+                /*
+                Assembly ensamblat = Assembly.LoadFrom($@"{_form}s.exe");
                 Type tipus = ensamblat.GetType($"{_classe}.{_form}");
-                Object dllBD = Activator.CreateInstance(tipus, NomTaula);
-
-                foreach (Form item in Application.OpenForms)
+                Object dllBD = Activator.CreateInstance(tipus, NomTaula);*/
+            }
+            else
+            {
+                try
                 {
-                    if (item.Name == "MenuScreen")
+                    Assembly ensamblat = Assembly.LoadFrom($@"{_classe}.dll");
+
+                    Type tipus = ensamblat.GetType($"{_classe}.{_form}");
+                    Object dllBD = Activator.CreateInstance(tipus, NomTaula);
+
+                    foreach (Form item in Application.OpenForms)
                     {
-                        foreach (Control ctr in item.Controls)
+                        if (item.Name == "MenuScreen")
                         {
-                            if (ctr.Name == "panelMain")
+                            foreach (Control ctr in item.Controls)
                             {
-                                ((Form)dllBD).TopLevel = false;
-                                ((Form)dllBD).AutoScroll = true;
-                                ctr.Controls.Add(((Form)dllBD));
-                                ((Form)dllBD).WindowState = FormWindowState.Maximized;
+                                if (ctr.Name == "panelMain")
+                                {
+                                    ((Form)dllBD).TopLevel = false;
+                                    ((Form)dllBD).AutoScroll = true;
+                                    ctr.Controls.Add(((Form)dllBD));
+                                    ((Form)dllBD).WindowState = FormWindowState.Maximized;
+                                }
                             }
                         }
                     }
-                }
 
                 ((Form)dllBD).Show();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Reflection error: " + exception.ToString());
+                }
             }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Reflection error: " + exception.ToString());
-            }
+            
         }
     }
 }

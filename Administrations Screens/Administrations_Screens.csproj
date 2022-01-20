@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandConsole.Designer.cs">
+      <DependentUpon>CommandConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="SectorAdministration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CommandConsole.resx">
+      <DependentUpon>CommandConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SectorAdministration.resx">
       <DependentUpon>SectorAdministration.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +129,10 @@
     <ProjectReference Include="..\BaseForms\BaseForms.csproj">
       <Project>{bbfe4b85-aea3-4cd7-85fe-ebabaac95422}</Project>
       <Name>BaseForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandConsoles\CommandConsoles.csproj">
+      <Project>{d793ba6d-c8b9-49e9-a9c5-d87c8ec100d0}</Project>
+      <Name>CommandConsoles</Name>
     </ProjectReference>
     <ProjectReference Include="..\ConnectionLibrary\ConnectionLibrary.csproj">
       <Project>{4502de6c-ee49-4e76-a124-eb16271b4d9a}</Project>
