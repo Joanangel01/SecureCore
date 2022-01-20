@@ -33,7 +33,7 @@ namespace CommandConsole
     class Program
     {
         static DataSet dts;
-        const string path = "../../../execute/FitxerDescarregat.edi";
+        const string path = "../execute/FitxerDescarregat.edi";
         private static List<string> ProcessLine(string linia)
         {
             List<string> camps = new List<string>();
